@@ -101,6 +101,14 @@ def productReduce3(list: List[Int]): Int = {
 ```
 
 
+## Erlang
+```erlang
+%% Erlang
+product_reduce(List) ->
+  lists:foldl(fun(X, Y) -> X * Y end, 1, List).
+```
+
+
 ## Groovy
 ```groovy
 // Groovy

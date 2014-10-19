@@ -98,6 +98,17 @@ def squareMap3(list: List[Int]): List[Int] = {
 ```
 
 
+## Erlang
+```erlang
+%% Erlang
+square_map(List) ->
+  lists:map(fun(X) -> trunc(math:pow(2, X)) end, List).
+
+square_map2(List) ->
+  [trunc(math:pow(2, X)) || X <- List].
+```
+
+
 ## Groovy
 ```groovy
 // Groovy

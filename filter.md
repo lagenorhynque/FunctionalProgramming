@@ -108,6 +108,17 @@ def evenFilter3(list: List[Int]): List[Int] = {
 ```
 
 
+## Erlang
+```erlang
+%% Erlang
+even_filter(List) ->
+  lists:filter(fun(X) -> X rem 2 =:= 0 end, List).
+
+even_filter2(List) ->
+  [X || X <- List, X rem 2 =:= 0].
+```
+
+
 ## Groovy
 ```groovy
 // Groovy
