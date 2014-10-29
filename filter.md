@@ -47,19 +47,6 @@ evenFilter'' list = [x | x -> list, x `mod` 2 == 0]
 ```
 
 
-## Ruby
-```ruby
-# Ruby
-def even_filter(list)
-  list.select {|x| x % 2 == 0}
-end
-
-def even_filter2(list)
-  list.select {|x| x.even?}
-end
-```
-
-
 ## Clojure
 ```clojure
 ;; Clojure
@@ -116,6 +103,19 @@ even_filter(List) ->
 
 even_filter2(List) ->
   [X || X <- List, X rem 2 =:= 0].
+```
+
+
+## Ruby
+```ruby
+# Ruby
+def even_filter(list)
+  list.select {|x| x % 2 == 0}
+end
+
+def even_filter2(list)
+  list.select {|x| x.even?}
+end
 ```
 
 

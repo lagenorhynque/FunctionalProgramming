@@ -46,19 +46,6 @@ productReduce'' = product
 ```
 
 
-## Ruby
-```ruby
-# Ruby
-def product_reduce(list)
-  list.inject(1) {|x, y| x * y}
-end
-
-def product_reduce2(list)
-  list.inject(1, :*)
-end
-```
-
-
 ## Clojure
 ```clojure
 ;; Clojure
@@ -106,6 +93,19 @@ def productReduce3(list: List[Int]): Int = {
 %% Erlang
 product_reduce(List) ->
   lists:foldl(fun(X, Y) -> X * Y end, 1, List).
+```
+
+
+## Ruby
+```ruby
+# Ruby
+def product_reduce(list)
+  list.inject(1) {|x, y| x * y}
+end
+
+def product_reduce2(list)
+  list.inject(1, :*)
+end
 ```
 
 

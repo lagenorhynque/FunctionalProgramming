@@ -47,15 +47,6 @@ squareMap'' list = [x ^ 2 | x <- list]
 ```
 
 
-## Ruby
-```ruby
-# Ruby
-def square_map(list)
-  list.collect {|x| x ** 2}
-end
-```
-
-
 ## Clojure
 ```clojure
 ;; Clojure
@@ -106,6 +97,15 @@ square_map(List) ->
 
 square_map2(List) ->
   [trunc(math:pow(2, X)) || X <- List].
+```
+
+
+## Ruby
+```ruby
+# Ruby
+def square_map(list)
+  list.collect {|x| x ** 2}
+end
 ```
 
 
