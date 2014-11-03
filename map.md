@@ -3,7 +3,7 @@
 ## Java
 ```java
 // Java
-public static List<Integer> squareMap(List<Integer> list) {
+public static List<Integer> mapSquare(List<Integer> list) {
   return list.steam()
     .map(x -> (int) Math.pow(x, 2))
     .collect(Collectors.toList());
@@ -14,7 +14,7 @@ public static List<Integer> squareMap(List<Integer> list) {
 ## JavaScript
 ```javascript
 // JavaScript
-var squareMap = function (list) {
+var mapSquare = function (list) {
   return list.map(function (x) {
     return Math.pow(x, 2);
   });
@@ -25,10 +25,10 @@ var squareMap = function (list) {
 ## Python
 ```python
 # Python
-def square_map(lst):
+def map_square(lst):
     return map(lambda x: x ** 2, lst)
 
-def square_map2(lst):
+def map_square2(lst):
     return [x ** 2 for x in lst]
 ```
 
@@ -36,27 +36,27 @@ def square_map2(lst):
 ## Haskell
 ```haskell
 -- Haskell
-squareMap :: [Int] -> [Int]
-squareMap = map (\x -> x ^ 2)
+mapSquare :: [Int] -> [Int]
+mapSquare = map (\x -> x ^ 2)
 
-squareMap' :: [Int] -> [Int]
-squareMap' = map (^ 2)
+mapSquare' :: [Int] -> [Int]
+mapSquare' = map (^ 2)
 
-squareMap'' :: [Int] -> [Int]
-squareMap'' list = [x ^ 2 | x <- list]
+mapSquare'' :: [Int] -> [Int]
+mapSquare'' list = [x ^ 2 | x <- list]
 ```
 
 
 ## Clojure
 ```clojure
 ;; Clojure
-(defn square-map [lst]
+(defn map-square [lst]
   (map (fn [x] (expt x 2)) lst))
 
-(defn square-map2 [lst]
+(defn map-square2 [lst]
   (map #(expt % 2) lst))
 
-(defn square-map3 [lst]
+(defn map-square3 [lst]
   (for [x lst] (expt x 2)))
 ```
 
@@ -64,10 +64,10 @@ squareMap'' list = [x ^ 2 | x <- list]
 ## Common Lisp
 ```lisp
 ;; Common Lisp
-(defun square-map (lst)
+(defun map-square (lst)
   (mapcar #'(lambda (x) (expt x 2)) lst))
 
-(defun square-map2 (lst)
+(defun map-square2 (lst)
   (loop for x in lst collect (expt x 2)))
 ```
 
@@ -75,15 +75,15 @@ squareMap'' list = [x ^ 2 | x <- list]
 ## Scala
 ```scala
 // Scala
-def squareMap(list: List[Int]): List[Int] = {
+def mapSquare(list: List[Int]): List[Int] = {
   list.map(x => Math.pow(x, 2).toInt)
 }
 
-def squareMap2(list: List[Int]): List[Int] = {
+def mapSquare2(list: List[Int]): List[Int] = {
   list.map(Math.pow(_, 2).toInt)
 }
 
-def squareMap3(list: List[Int]): List[Int] = {
+def mapSquare3(list: List[Int]): List[Int] = {
   for (x <- list) yield (Math.pow(x, 2).toInt)
 }
 ```
@@ -92,10 +92,10 @@ def squareMap3(list: List[Int]): List[Int] = {
 ## Erlang
 ```erlang
 %% Erlang
-square_map(List) ->
+map_square(List) ->
   lists:map(fun(X) -> trunc(math:pow(2, X)) end, List).
 
-square_map2(List) ->
+map_square2(List) ->
   [trunc(math:pow(2, X)) || X <- List].
 ```
 
@@ -103,7 +103,7 @@ square_map2(List) ->
 ## Ruby
 ```ruby
 # Ruby
-def square_map(list)
+def map_square(list)
   list.collect {|x| x ** 2}
 end
 ```
@@ -112,11 +112,11 @@ end
 ## Groovy
 ```groovy
 // Groovy
-static List<Int> squareMap(List<Int> list) {
+static List<Int> mapSquare(List<Int> list) {
   list.collect {x -> Math.pow(x, 2) as int}
 }
 
-static List<Int> squareMap2(List<Int> list) {
+static List<Int> mapSquare2(List<Int> list) {
   list.collect {Math.pow(it, 2) as int}
 }
 ```
@@ -125,7 +125,7 @@ static List<Int> squareMap2(List<Int> list) {
 ## Perl
 ```perl
 # Perl
-sub square_map {
+sub map_square {
   my ($list_ref) = @_;
 
   return map {$_ ** 2} @$list_ref;

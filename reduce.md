@@ -3,7 +3,7 @@
 ## Java
 ```java
 // Java
-public static int productReduce(List<Integer> list) {
+public static int reduceProduct(List<Integer> list) {
   return list.stream()
     .reduce(1, (x, y) -> x * y);
 }
@@ -13,7 +13,7 @@ public static int productReduce(List<Integer> list) {
 ## JavaScript
 ```javascript
 // JavaScript
-var productReduce = function (list) {
+var reduceProduct = function (list) {
   return list.reduce(function (x, y) {
     return x * y;
   }, 1);
@@ -24,10 +24,10 @@ var productReduce = function (list) {
 ## Python
 ```python
 # Python
-def product_reduce(lst):
+def reduce_product(lst):
     return functools.reduce(lambda x, y: x * y, lst, 1)
 
-def product_reduce2(lst):
+def reduce_product2(lst):
     return functools.reduce(operator.mul, lst, 1)
 ```
 
@@ -35,27 +35,27 @@ def product_reduce2(lst):
 ## Haskell
 ```haskell
 -- Haskell
-productReduce :: [Int] -> Int
-productReduce = foldl' (\x y -> x * y) 1
+reduceProduct :: [Int] -> Int
+reduceProduct = foldl' (\x y -> x * y) 1
 
-productReduce' :: [Int] -> Int
-productReduce' = foldl' (*) 1
+reduceProduct' :: [Int] -> Int
+reduceProduct' = foldl' (*) 1
 
-productReduce'' :: [Int] -> Int
-productReduce'' = product
+reduceProduct'' :: [Int] -> Int
+reduceProduct'' = product
 ```
 
 
 ## Clojure
 ```clojure
 ;; Clojure
-(defn product-reduce [lst]
+(defn reduce-product [lst]
   (reduce (fn [x y] (* x y)) 1 lst))
 
-(defn product-reduce2 [lst]
+(defn reduce-product2 [lst]
   (reduce #(* %1 %2) 1 lst))
 
-(defn product-reduce3 [lst]
+(defn reduce-product3 [lst]
   (reduce * 1 lst))
 ```
 
@@ -63,10 +63,10 @@ productReduce'' = product
 ## Common Lisp
 ```lisp
 ;; Common Lisp
-(defun produce-reduce (lst)
+(defun reduce-product (lst)
   (reduce #'(lambda (x y) (* x y)) lst :initial-value 1))
 
-(defun product-reduce2 (lst)
+(defun reduce-product2 (lst)
   (reduce #'* lst :initial-value 1))
 ```
 
@@ -74,15 +74,15 @@ productReduce'' = product
 ## Scala
 ```scala
 // Scala
-def productReduce(list: List[Int]): Int = {
+def reduceProduct(list: List[Int]): Int = {
   list.fold(1)((x, y) => x * y)
 }
 
-def productReduce2(list: List[Int]): Int = {
+def reduceProduct2(list: List[Int]): Int = {
   list.fold(1)(_ * _)
 }
 
-def productReduce3(list: List[Int]): Int = {
+def reduceProduct3(list: List[Int]): Int = {
   list.product
 }
 ```
@@ -91,7 +91,7 @@ def productReduce3(list: List[Int]): Int = {
 ## Erlang
 ```erlang
 %% Erlang
-product_reduce(List) ->
+reduce_product(List) ->
   lists:foldl(fun(X, Y) -> X * Y end, 1, List).
 ```
 
@@ -99,11 +99,11 @@ product_reduce(List) ->
 ## Ruby
 ```ruby
 # Ruby
-def product_reduce(list)
+def reduce_product(list)
   list.inject(1) {|x, y| x * y}
 end
 
-def product_reduce2(list)
+def reduce_product2(list)
   list.inject(1, :*)
 end
 ```
@@ -112,7 +112,7 @@ end
 ## Groovy
 ```groovy
 // Groovy
-static int productReduce(List<Int> list) {
+static int reduceProduct(List<Int> list) {
   list.inject(1) {x, y -> x * y}
 }
 ```
@@ -121,13 +121,13 @@ static int productReduce(List<Int> list) {
 ## Perl
 ```perl
 # Perl
-sub product_reduce {
+sub reduce_product {
   my ($list_ref) = @_;
 
   return List::Util::reduce {$a * $ b} 1, @$list_ref;
 }
 
-sub product_reduce2 {
+sub reduce_product2 {
   my ($list_ref) = @_;
 
   return List::Util::product @$list_ref;

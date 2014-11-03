@@ -3,7 +3,7 @@
 ## Java
 ```java
 // Java
-public static List<Integer> evenFilter(List<Integer> list) {
+public static List<Integer> filterEven(List<Integer> list) {
   return list.stream()
     .filter(x -> x % 2 == 0)
     .collect(Collectors.toList());
@@ -14,7 +14,7 @@ public static List<Integer> evenFilter(List<Integer> list) {
 ## JavaScript
 ```javascript
 // JavaScript
-var evenFilter = function (list) {
+var filterEven = function (list) {
   return list.filter(function (x) {
     return x % 2 === 0;
   });
@@ -25,10 +25,10 @@ var evenFilter = function (list) {
 ## Python
 ```python
 # Python
-def even_filter(lst):
+def filter_even(lst):
     return filter(lambda x: x % 2 == 0, lst)
 
-def even_filter2(lst):
+def filter_even2(lst):
     return [x for x in lst if x % 2 == 0]
 ```
 
@@ -36,30 +36,30 @@ def even_filter2(lst):
 ## Haskell
 ```haskell
 -- Haskell
-evenFilter :: [Int] -> [Int]
-evenFilter = filter (\x -> x `mod` 2 == 0)
+filterEven :: [Int] -> [Int]
+filterEven = filter (\x -> x `mod` 2 == 0)
 
-evenFilter' :: [Int] -> [Int]
-evenFilter' = filter even
+filterEven' :: [Int] -> [Int]
+filterEven' = filter even
 
-evenFilter'' :: [Int] -> [Int]
-evenFilter'' list = [x | x -> list, x `mod` 2 == 0]
+filterEven'' :: [Int] -> [Int]
+filterEven'' list = [x | x -> list, x `mod` 2 == 0]
 ```
 
 
 ## Clojure
 ```clojure
 ;; Clojure
-(defn even-filter [lst]
+(defn filter-even [lst]
   (filter (fn [x] (= (rem x 2) 0)) lst))
 
-(defn even-filter2 [lst]
+(defn filter-even2 [lst]
   (filter #(= (rem % 2) 0) lst))
 
-(defn even-filter3 [lst]
+(defn filter-even3 [lst]
   (filter even? lst))
 
-(defn even-filter4 [lst]
+(defn filter-even4 [lst]
   (for [x lst :when (= (rem x 2) 0)] x))
 ```
 
@@ -67,13 +67,13 @@ evenFilter'' list = [x | x -> list, x `mod` 2 == 0]
 ## Common Lisp
 ```lisp
 ;; Common Lisp
-(defun even-filter (lst)
+(defun filter-even (lst)
   (remove-if-not #'(lambda (x) (= (rem x 2) 0)) lst))
 
-(defun even-filter2 (lst)
+(defun filter-even2 (lst)
   (remove-if-not #'evenp lst))
 
-(defun even-filter3 (lst)
+(defun filter-even3 (lst)
   (loop for x in lst if (= (rem x 2) 0) collect x))
 ```
 
@@ -81,15 +81,15 @@ evenFilter'' list = [x | x -> list, x `mod` 2 == 0]
 ## Scala
 ```scala
 // Scala
-def evenFilter(list: List[Int]): List[Int] = {
+def filterEven(list: List[Int]): List[Int] = {
   list.filter(x => x % 2 == 0)
 }
 
-def evenFilter2(list: List[Int]): List[Int] = {
+def filterEven2(list: List[Int]): List[Int] = {
   list.filter(_ % 2 == 0)
 }
 
-def evenFilter3(list: List[Int]): List[Int] = {
+def filterEven3(list: List[Int]): List[Int] = {
   for (x <- list if x % 2 == 0) yield x
 }
 ```
@@ -98,10 +98,10 @@ def evenFilter3(list: List[Int]): List[Int] = {
 ## Erlang
 ```erlang
 %% Erlang
-even_filter(List) ->
+filter_even(List) ->
   lists:filter(fun(X) -> X rem 2 =:= 0 end, List).
 
-even_filter2(List) ->
+filter_even2(List) ->
   [X || X <- List, X rem 2 =:= 0].
 ```
 
@@ -109,11 +109,11 @@ even_filter2(List) ->
 ## Ruby
 ```ruby
 # Ruby
-def even_filter(list)
+def filter_even(list)
   list.select {|x| x % 2 == 0}
 end
 
-def even_filter2(list)
+def filter_even2(list)
   list.select {|x| x.even?}
 end
 ```
@@ -122,11 +122,11 @@ end
 ## Groovy
 ```groovy
 // Groovy
-static List<Int> evenFilter(List<Int> list) {
+static List<Int> filterEven(List<Int> list) {
   list.findAll {x -> x % 2 == 0}
 }
 
-static List<Int> evenFilter2(List<Int> list) {
+static List<Int> filterEven2(List<Int> list) {
   list.findAll {it % 2 == 0}
 }
 ```
@@ -135,7 +135,7 @@ static List<Int> evenFilter2(List<Int> list) {
 ## Perl
 ```perl
 # Perl
-sub even_filter {
+sub filter_even {
   my ($list_ref) = @_;
 
   return grep {$_ % 2 == 0} @$list_ref;
