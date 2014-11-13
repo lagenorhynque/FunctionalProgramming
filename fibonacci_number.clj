@@ -24,3 +24,7 @@
 (defn fibonacci4 [i]
   (let [fibs (map first (iterate (fn [[a b]] [b (+ a b)]) [0N 1N]))]
     (nth fibs i)))
+
+(defn fibonacci5 [i]
+  (letfn [(fibs [a b] (cons a (lazy-seq (fibs b (+ a b)))))]
+    (nth (fibs 0N 1N) i)))
