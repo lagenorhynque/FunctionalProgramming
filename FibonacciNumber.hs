@@ -31,3 +31,22 @@ fibonacci5 :: Int -> Integer
 fibonacci5 i = fibs !! i
   where
     fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
+
+-- 行列の利用
+fibonacci6 :: Int -> Integer
+fibonacci6 i = iterate (prod [1, 1, 1, 0]) [1, 0, 0, 1] !! i !! 1
+  where
+    prod [a11, a12, a21, a22] [b11, b12, b21, b22] =
+      [a11 * b11 + a12 * b21, a11 * b12 + a12 * b22,
+       a21 * b11 + a22 * b21, a21 * b12 + a22 * b22]
+
+fibonacci6' :: Int -> Integer
+fibonacci6' i = pow prod [1, 1, 1, 0] i [1, 0, 0, 1] !! 1
+  where
+    pow f x n a
+      | n == 0    = a
+      | even n    = pow f (f x x) (n `div` 2) a
+      | otherwise = pow f x (n - 1) (f x a)
+    prod [a11, a12, a21, a22] [b11, b12, b21, b22] =
+      [a11 * b11 + a12 * b21, a11 * b12 + a12 * b22,
+       a21 * b11 + a22 * b21, a21 * b12 + a22 * b22]
