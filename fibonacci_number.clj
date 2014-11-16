@@ -9,7 +9,7 @@
 ;; 末尾再帰
 (defn fibonacci2 [i]
   (letfn [(fib [n a b]
-            (if (= n 0)
+            (if (zero? n)
               a
               (recur (dec n) b (+ a b))))]
     (fib i 0N 1N)))
@@ -39,7 +39,7 @@
 (defn fibonacci6' [i]
   (letfn [(pow [f x n a]
             (cond
-              (= n 0)   a
+              (zero? n) a
               (even? n) (recur f (f x x) (quot n 2) a)
               :else     (recur f x (dec n) (f x a))))
           (prod [[a11 a12 a21 a22] [b11 b12 b21 b22]]
