@@ -19,7 +19,7 @@
 
 
 ## 0. ループ
-__手続き型(procedural)__言語では、一般的に繰り返しをループによって表現する。
+__手続き型([procedural])__言語では、一般的に繰り返しをループによって表現する。
 
 ```python
 # Python
@@ -33,16 +33,18 @@ def fibonacci(i):
 上記Pythonのコードでは、a = 0, b = 1としてそれぞれ初期化し、aにbを、bにaとbの和を代入する処理をi回繰り返している。
 ここでは、変数への値の代入により状態を変化させていることから、__副作用([side effect])__があると表現される。
 
-変数に代入を行うことで処理を実行していくスタイルは機械寄りの(低レベルな)アプローチであり、一行一行命令を記述していくものであることから__命令型(imperative)__と呼ばれる。
+このような変数に代入を行うことで処理を実行していくスタイルは機械寄りの(低レベルな)アプローチであり、一行一行命令を記述していくものであることから__命令型([imperative])__と呼ばれる。
 
 変数やループ構造が目立ち、数学的な定義(プログラムの仕様)との関係が分かりづらくなっている。
 また、フィボナッチ数の計算は非常にシンプルだが、登場する変数が多くなったり、処理が複雑になったりすると、状態の変化をたどるのが困難になる可能性がある。
 
+[procedural]: http://en.wikipedia.org/wiki/Procedural_programming
 [side effect]: http://en.wikipedia.org/wiki/Side_effect_(computer_science)
+[imperative]: http://en.wikipedia.org/wiki/Imperative_programming
 
 
 ## 1. 再帰
-__関数型(functional)__言語では、手続き型言語で一般的なループの代わりに__再帰([recursion])__によって繰り返しを表現することが多い。
+__関数型([functional])__言語では、手続き型言語で一般的なループの代わりに__再帰([recursion])__によって繰り返しを表現することが多い。
 
 ```haskell
 -- Haskell
@@ -60,8 +62,10 @@ fibonacci1 i = fibonacci1 (i - 2) + fibonacci1 (i - 1)
 ```
 
 Haskell、Clojureともに数学的な再帰的定義をほぼそのまま表現した、シンプルなコードになっている。
+ちなみにHaskellでは、引数に対する__パターンマッチング([pattern matching])__を利用している。
+これにより、引数の値が0の場合、1の場合、その他の場合に対応する式の値を返すという条件分岐を非常に簡潔に表現できる。
 
-数学的なアプローチで、処理すべき命令ではなく満たすべき定義や条件(仕様)を記述していくスタイルであることから、__宣言型(declarative)__と呼ばれる。
+こうした数学的なアプローチは、処理すべき命令ではなく満たすべき定義や条件(仕様)を記述していくスタイルであることから、__宣言型([declarative])__と呼ばれる。
 
 関数型言語における純粋な「関数」(function)は__参照透過性([referential transparency])__を持つ。
 これは、変化する状態(可変状態)を持たず副作用がないことにより、同じ条件に対して必ず同じ結果が得られることが保証されていることを意味する。
@@ -71,7 +75,10 @@ Haskell、Clojureともに数学的な再帰的定義をほぼそのまま表現
 ただし、単純な再帰としてプログラムを実装した場合、関数呼び出しの繰り返しによりスタックオーバーフローが発生する可能性がある。
 また、フィボナッチ数の場合、1回の関数呼び出しにつき2回の再帰呼び出しが生じるため計算量が指数的に増大し、大きな入力値に対して計算効率が非常に悪い。
 
+[functional]: http://en.wikipedia.org/wiki/Functional_programming
 [recursion]: http://en.wikipedia.org/wiki/Recursion_(computer_science)
+[pattern matching]: http://en.wikipedia.org/wiki/Pattern_matching
+[declarative]: http://en.wikipedia.org/wiki/Declarative_programming
 [referential transparency]: http://en.wikipedia.org/wiki/Referential_transparency_(computer_science)
 
 
@@ -136,7 +143,7 @@ Clojureでも同等の関数reduceを利用している。
 ## 4. 遅延評価
 一部の関数型言語では__遅延評価([lazy evaluation])__を利用したコードを書くことができる。
 遅延評価とは、式の評価を計算で必要になるまで遅らせることをいう。
-一方、大多数の言語では通常、式は__先行評価(eager evaluation)__、つまり宣言された時点で評価される。
+一方、大多数の言語では通常、式は__先行評価([eager evaluation])__、つまり宣言された時点で評価される。
 遅延評価により、例えば無限に続く数列を定義した上で、必要な部分だけ利用するというようなことが簡単に記述できる。
 
 ```haskell
@@ -182,6 +189,7 @@ fibonacci5 i = fibs !! i
 特に巨大なデータ構造や無限に続くデータ構造を扱う場合に、遅延評価が利用できるとシンプルな定義と効率を両立させることができる。
 
 [lazy evaluation]: http://en.wikipedia.org/wiki/Lazy_evaluation
+[eager evaluation]: http://en.wikipedia.org/wiki/Eager_evaluation
 
 
 ## 別解: 行列の利用
@@ -218,6 +226,9 @@ fibonacci6 i = iterate (prod [1, 1, 1, 0]) [1, 0, 0, 1] !! i !! 1
     (nth (nth (iterate #(prod [1N 1N 1N 0N] %) [1N 0N 0N 1N]) i) 1)))
 ```
 
+上記Haskellのコードでは、関数prodを__部分適用([partial application])__している。
+部分適用とは、複数の引数を受け取る関数に一部の引数のみ渡すことをいい、これにより関数どうしを柔軟に組み合わせることが可能になる。
+
 ここで、指数法則
 > $a^{mn} = {(a^m)}^n$
 
@@ -248,3 +259,10 @@ fibonacci6' i = pow prod [1, 1, 1, 0] i [1, 0, 0, 1] !! 1
              (+ (* a21 b11) (* a22 b21)) (+ (* a21 b12) (* a22 b22))])]
     (nth (pow prod [1N 1N 1N 0N] i [1N 0N 0N 1N]) 1)))
 ```
+
+上記のHaskellコードでは、関数powでの条件分岐を__ガード([guard])__で表現している。
+「| 述語 = 式」という形式を連ねることで、上から順に見て初めて述語を満たす行の式の値を返すことができる。
+特にHaskellでは、パターンマッチングとガードを効果的に組み合わせることで複雑な条件分岐をとても短く分かりやすく記述することができる。
+
+[partial application]: http://en.wikipedia.org/wiki/Partial_application
+[guard]: http://en.wikipedia.org/wiki/Guard_(computer_science)
