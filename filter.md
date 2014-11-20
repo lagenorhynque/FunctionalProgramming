@@ -3,7 +3,7 @@
 ## Java
 ```java
 // Java
-public static List<Integer> filterEven(List<Integer> list) {
+public static List<Integer> filterEven(final List<Integer> list) {
   return list.stream()
     .filter(x -> x % 2 == 0)
     .collect(Collectors.toList());

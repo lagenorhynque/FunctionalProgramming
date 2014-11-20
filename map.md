@@ -3,7 +3,7 @@
 ## Java
 ```java
 // Java
-public static List<Integer> mapSquare(List<Integer> list) {
+public static List<Integer> mapSquare(final List<Integer> list) {
   return list.steam()
     .map(x -> (int) Math.pow(x, 2))
     .collect(Collectors.toList());

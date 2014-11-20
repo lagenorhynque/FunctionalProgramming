@@ -3,7 +3,7 @@
 ## Java
 ```java
 // Java
-public static int reduceProduct(List<Integer> list) {
+public static int reduceProduct(final List<Integer> list) {
   return list.stream()
     .reduce(1, (x, y) -> x * y);
 }
