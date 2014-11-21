@@ -57,6 +57,9 @@ reduceProduct'' = product
 
 (defn reduce-product3 [lst]
   (reduce * 1 lst))
+
+(defn reduce-product4 [lst]
+  (apply * lst))
 ```
 
 
@@ -68,6 +71,9 @@ reduceProduct'' = product
 
 (defun reduce-product2 (lst)
   (reduce #'* lst :initial-value 1))
+
+(defun reduce-product3 (lst)
+  (apply #'* lst))
 ```
 
 
