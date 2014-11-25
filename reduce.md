@@ -118,7 +118,7 @@ end
 ## Groovy
 ```groovy
 // Groovy
-static int reduceProduct(List<Int> list) {
+static int reduceProduct(List<Integer> list) {
   list.inject(1) {x, y -> x * y}
 }
 ```

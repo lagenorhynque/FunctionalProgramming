@@ -112,11 +112,11 @@ end
 ## Groovy
 ```groovy
 // Groovy
-static List<Int> mapSquare(List<Int> list) {
+static List<Integer> mapSquare(List<Integer> list) {
   list.collect {x -> Math.pow(x, 2) as int}
 }
 
-static List<Int> mapSquare2(List<Int> list) {
+static List<Integer> mapSquare2(List<Integer> list) {
   list.collect {Math.pow(it, 2) as int}
 }
 ```

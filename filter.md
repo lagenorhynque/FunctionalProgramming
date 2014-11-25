@@ -122,11 +122,11 @@ end
 ## Groovy
 ```groovy
 // Groovy
-static List<Int> filterEven(List<Int> list) {
+static List<Integer> filterEven(List<Integer> list) {
   list.findAll {x -> x % 2 == 0}
 }
 
-static List<Int> filterEven2(List<Int> list) {
+static List<Integer> filterEven2(List<Integer> list) {
   list.findAll {it % 2 == 0}
 }
 ```
