@@ -55,7 +55,7 @@ class OptionalInJava8 {
     System.out.println(safeGcd(12, 18).map(gcd -> Math.pow(gcd, 2)));
     System.out.println(safeGcd(12, -18).map(gcd -> Math.pow(gcd, 2)));
 
-    // Optiona.ofNullableを利用すると、nullを返すメソッドの戻り値をOptionalでラップすることができる
+    // Optional.ofNullableを利用すると、nullを返すメソッドの戻り値をOptionalでラップすることができる
     // 1-1. Optional自体を表示
     System.out.println(Optional.ofNullable(unsafeGcd(12, 18)));
     System.out.println(Optional.ofNullable(unsafeGcd(12, -18)));
