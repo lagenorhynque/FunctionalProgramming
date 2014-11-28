@@ -84,7 +84,7 @@ def mapSquare2(list: List[Int]): List[Int] = {
 }
 
 def mapSquare3(list: List[Int]): List[Int] = {
-  for (x <- list) yield (Math.pow(x, 2).toInt)
+  for (x <- list) yield Math.pow(x, 2).toInt
 }
 ```
 
