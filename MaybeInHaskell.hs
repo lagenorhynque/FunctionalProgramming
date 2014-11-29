@@ -5,10 +5,10 @@ import Control.Applicative ((<$>))
 gcd' :: Int -> Int -> Maybe Int
 gcd' a b
   | a < 1 || b < 1 = Nothing
-  | otherwise      = divide a b
+  | otherwise      = Just $ divide a b
   where
     divide x y
-      | y == 0    = Just x
+      | y == 0    = x
       | otherwise = divide y (x `mod` y)
 
 main :: IO ()
