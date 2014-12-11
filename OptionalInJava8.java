@@ -2,7 +2,7 @@ import java.util.Optional;
 
 class OptionalInJava8 {
   /*
-   * 整数a, bの最小公倍数を算出する。
+   * 整数a, bの最大公約数を算出する。
    * a, bが自然数ではない場合、nullを返却する。
    */
   public static Integer unsafeGcd(int a, int b) {
@@ -19,7 +19,7 @@ class OptionalInJava8 {
   }
 
   /*
-   * 整数a, bの最小公倍数を算出する。
+   * 整数a, bの最大公約数を算出する。
    * a, bが自然数ではない場合、Optional.emptyを返却する。
    */
   public static Optional<Integer> safeGcd(int a, int b) {
