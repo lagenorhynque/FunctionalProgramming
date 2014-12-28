@@ -22,6 +22,19 @@ var filterEven = function (list) {
 ```
 
 
+## CoffeeScript
+```coffeescript
+# CoffeeScript
+filterEven = (list) ->
+  list.filter((x) ->
+    x % 2 is 0
+  )
+
+filterEven2 = (list) ->
+  (x for x in list when x % 2 is 0)
+```
+
+
 ## Python
 ```python
 # Python

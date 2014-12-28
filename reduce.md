@@ -21,6 +21,16 @@ var reduceProduct = function (list) {
 ```
 
 
+## CoffeeScript
+```coffeescript
+# CoffeeScript
+reduceProduct = (list) ->
+  list.reduce((x, y) ->
+    x * y
+  , 1)
+```
+
+
 ## Python
 ```python
 # Python

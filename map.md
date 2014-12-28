@@ -22,6 +22,19 @@ var mapSquare = function (list) {
 ```
 
 
+## CoffeeScript
+```coffeescript
+# CoffeeScript
+mapSquare = (list) ->
+  list.map((x) ->
+    x ** 2
+  )
+
+mapSquare2 = (list) ->
+  (x ** 2 for x in list)
+```
+
+
 ## Python
 ```python
 # Python
