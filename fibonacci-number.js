@@ -119,14 +119,14 @@ var FibonacciNumber = (function () {
   };
 }());
 
-console.log(FibonacciNumber.fibonacci(1000));
+console.log(FibonacciNumber.fibonacci(10));
 console.log(FibonacciNumber.fibonacci1(10));
-console.log(FibonacciNumber.fibonacci2(1000));
-console.log(FibonacciNumber.fibonacci3(1000));
-console.log(FibonacciNumber.fibonacci4(1000));
-// console.log(FibonacciNumber.fibonacci5(1000));
-console.log(FibonacciNumber.fibonacci6(1000));
-console.log(FibonacciNumber.fibonacci6_2(1000));
+console.log(FibonacciNumber.fibonacci2(10));
+console.log(FibonacciNumber.fibonacci3(10));
+console.log(FibonacciNumber.fibonacci4(10));
+// console.log(FibonacciNumber.fibonacci5(10));
+console.log(FibonacciNumber.fibonacci6(10));
+console.log(FibonacciNumber.fibonacci6_2(10));
 
 console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci).toArray());
 console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci1).toArray());
