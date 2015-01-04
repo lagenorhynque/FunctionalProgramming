@@ -1,6 +1,8 @@
 var Lazy = typeof require === "undefined" ? Lazy : require("lazy.js");
 
 var FibonacciNumber = (function () {
+  "use strict";
+
   // ループ
   var fibonacci = function (i) {
     var a = 0;

@@ -1,6 +1,8 @@
 Lazy = if require? then require("lazy.js") else Lazy
 
 FibonacciNumber = do ->
+  "use strict"
+
   # ループ
   fibonacci = (i) ->
     [a, b] = [0, 1]
