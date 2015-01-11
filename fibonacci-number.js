@@ -1,7 +1,7 @@
-var Lazy = typeof require === "undefined" ? Lazy : require("lazy.js");
-
-var FibonacciNumber = (function () {
+(function () {
   "use strict";
+
+  var Lazy = typeof require === "undefined" ? this.Lazy : require("lazy.js");
 
   // ループ
   var fibonacci = function (i) {
@@ -109,7 +109,7 @@ var FibonacciNumber = (function () {
     return pow(prod, [[1, 1], [1, 0]], i, [[1, 0], [0, 1]])[0][1];
   };
 
-  return {
+  var FibonacciNumber = {
     fibonacci: fibonacci,
     fibonacci1: fibonacci1,
     fibonacci2: fibonacci2,
@@ -119,22 +119,27 @@ var FibonacciNumber = (function () {
     fibonacci6: fibonacci6,
     fibonacci6_2: fibonacci6_2
   };
-}());
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = FibonacciNumber;
+  } else {
+    this.FibonacciNumber = FibonacciNumber;
+  }
 
-console.log(FibonacciNumber.fibonacci(10));
-console.log(FibonacciNumber.fibonacci1(10));
-console.log(FibonacciNumber.fibonacci2(10));
-console.log(FibonacciNumber.fibonacci3(10));
-console.log(FibonacciNumber.fibonacci4(10));
-// console.log(FibonacciNumber.fibonacci5(10));
-console.log(FibonacciNumber.fibonacci6(10));
-console.log(FibonacciNumber.fibonacci6_2(10));
+  console.log(FibonacciNumber.fibonacci(10));
+  console.log(FibonacciNumber.fibonacci1(10));
+  console.log(FibonacciNumber.fibonacci2(10));
+  console.log(FibonacciNumber.fibonacci3(10));
+  console.log(FibonacciNumber.fibonacci4(10));
+  // console.log(FibonacciNumber.fibonacci5(10));
+  console.log(FibonacciNumber.fibonacci6(10));
+  console.log(FibonacciNumber.fibonacci6_2(10));
 
-console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci).toArray());
-console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci1).toArray());
-console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci2).toArray());
-console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci3).toArray());
-console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci4).toArray());
-// console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci5).toArray());
-console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci6).toArray());
-console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci6_2).toArray());
+  console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci).toArray());
+  console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci1).toArray());
+  console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci2).toArray());
+  console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci3).toArray());
+  console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci4).toArray());
+  // console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci5).toArray());
+  console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci6).toArray());
+  console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci6_2).toArray());
+}.call(this));
