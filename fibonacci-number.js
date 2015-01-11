@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var Lazy = typeof require === "undefined" ? this.Lazy : require("lazy.js");
+  var Lazy = typeof require !== "undefined" ? require("lazy.js") : this.Lazy;
 
   // ループ
   var fibonacci = function (i) {
