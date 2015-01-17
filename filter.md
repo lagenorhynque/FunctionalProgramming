@@ -39,7 +39,7 @@ filterEven2 = (list) ->
 ```python
 # Python
 def filter_even(lst):
-    return filter(lambda x: x % 2 == 0, lst)
+    return list(filter(lambda x: x % 2 == 0, lst))
 
 def filter_even2(lst):
     return [x for x in lst if x % 2 == 0]

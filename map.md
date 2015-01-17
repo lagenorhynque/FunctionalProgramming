@@ -39,7 +39,7 @@ mapSquare2 = (list) ->
 ```python
 # Python
 def map_square(lst):
-    return map(lambda x: x ** 2, lst)
+    return list(map(lambda x: x ** 2, lst))
 
 def map_square2(lst):
     return [x ** 2 for x in lst]
