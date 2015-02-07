@@ -16,6 +16,7 @@ FunctionalProgramming
 1. Common Lisp
 1. Scala
 1. Erlang
+1. OCaml
 1. Ruby
 1. Groovy
 1. C
