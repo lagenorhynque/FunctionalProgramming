@@ -119,6 +119,13 @@ filter_even2(List) ->
 ```
 
 
+## OCaml
+```ocaml
+let filter_even =
+  List.filter (fun x -> x mod 2 = 0)
+```
+
+
 ## Ruby
 ```ruby
 # Ruby

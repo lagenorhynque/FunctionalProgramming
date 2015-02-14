@@ -113,6 +113,13 @@ map_square2(List) ->
 ```
 
 
+## OCaml
+```ocaml
+let map_square =
+  List.map (fun x -> int_of_float (float_of_int x ** 2.))
+```
+
+
 ## Ruby
 ```ruby
 # Ruby

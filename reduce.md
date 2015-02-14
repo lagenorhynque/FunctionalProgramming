@@ -91,11 +91,11 @@ reduceProduct'' = product
 ```scala
 // Scala
 def reduceProduct(list: List[Int]): Int = {
-  list.fold(1)((x, y) => x * y)
+  list.foldLeft(1)((x, y) => x * y)
 }
 
 def reduceProduct2(list: List[Int]): Int = {
-  list.fold(1)(_ * _)
+  list.foldLeft(1)(_ * _)
 }
 
 def reduceProduct3(list: List[Int]): Int = {
@@ -109,6 +109,16 @@ def reduceProduct3(list: List[Int]): Int = {
 %% Erlang
 reduce_product(List) ->
   lists:foldl(fun(X, Y) -> X * Y end, 1, List).
+```
+
+
+## OCaml
+```ocaml
+let reduce_product =
+  List.fold_left (fun x y -> x * y) 1
+
+let reduce_product' =
+  List.fold_left ( * ) 1
 ```
 
 
