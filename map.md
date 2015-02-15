@@ -85,6 +85,25 @@ mapSquare'' list = [x ^ 2 | x <- list]
 ```
 
 
+## OCaml
+```ocaml
+(* OCaml *)
+let map_square =
+  List.map (fun x -> int_of_float (float_of_int x ** 2.))
+```
+
+
+## Erlang
+```erlang
+%% Erlang
+map_square(List) ->
+  lists:map(fun(X) -> trunc(math:pow(2, X)) end, List).
+
+map_square2(List) ->
+  [trunc(math:pow(2, X)) || X <- List].
+```
+
+
 ## Scala
 ```scala
 // Scala
@@ -102,29 +121,11 @@ def mapSquare3(list: List[Int]): List[Int] = {
 ```
 
 
-## Erlang
-```erlang
-%% Erlang
-map_square(List) ->
-  lists:map(fun(X) -> trunc(math:pow(2, X)) end, List).
-
-map_square2(List) ->
-  [trunc(math:pow(2, X)) || X <- List].
-```
-
-
-## OCaml
-```ocaml
-let map_square =
-  List.map (fun x -> int_of_float (float_of_int x ** 2.))
-```
-
-
 ## Ruby
 ```ruby
 # Ruby
 def map_square(list)
-  list.collect {|x| x ** 2}
+  list.collect { |x| x ** 2 }
 end
 ```
 
@@ -133,11 +134,11 @@ end
 ```groovy
 // Groovy
 static List<Integer> mapSquare(List<Integer> list) {
-  list.collect {x -> Math.pow(x, 2) as int}
+  list.collect { x -> Math.pow(x, 2) as int }
 }
 
 static List<Integer> mapSquare2(List<Integer> list) {
-  list.collect {Math.pow(it, 2) as int}
+  list.collect { Math.pow(it, 2) as int }
 }
 ```
 
@@ -148,6 +149,6 @@ static List<Integer> mapSquare2(List<Integer> list) {
 sub map_square {
   my ($list_ref) = @_;
 
-  return map {$_ ** 2} @$list_ref;
+  return map { $_ ** 2 } @$list_ref;
 }
 ```

@@ -87,6 +87,25 @@ reduceProduct'' = product
 ```
 
 
+## OCaml
+```ocaml
+(* OCaml *)
+let reduce_product =
+  List.fold_left (fun x y -> x * y) 1
+
+let reduce_product' =
+  List.fold_left ( * ) 1
+```
+
+
+## Erlang
+```erlang
+%% Erlang
+reduce_product(List) ->
+  lists:foldl(fun(X, Y) -> X * Y end, 1, List).
+```
+
+
 ## Scala
 ```scala
 // Scala
@@ -104,29 +123,11 @@ def reduceProduct3(list: List[Int]): Int = {
 ```
 
 
-## Erlang
-```erlang
-%% Erlang
-reduce_product(List) ->
-  lists:foldl(fun(X, Y) -> X * Y end, 1, List).
-```
-
-
-## OCaml
-```ocaml
-let reduce_product =
-  List.fold_left (fun x y -> x * y) 1
-
-let reduce_product' =
-  List.fold_left ( * ) 1
-```
-
-
 ## Ruby
 ```ruby
 # Ruby
 def reduce_product(list)
-  list.inject(1) {|x, y| x * y}
+  list.inject(1) { |x, y| x * y }
 end
 
 def reduce_product2(list)
@@ -139,7 +140,7 @@ end
 ```groovy
 // Groovy
 static int reduceProduct(List<Integer> list) {
-  list.inject(1) {x, y -> x * y}
+  list.inject(1) { x, y -> x * y }
 }
 ```
 
@@ -150,7 +151,7 @@ static int reduceProduct(List<Integer> list) {
 sub reduce_product {
   my ($list_ref) = @_;
 
-  return List::Util::reduce {$a * $ b} 1, @$list_ref;
+  return List::Util::reduce { $a * $b } 1, @$list_ref;
 }
 
 sub reduce_product2 {

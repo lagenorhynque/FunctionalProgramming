@@ -91,6 +91,25 @@ filterEven'' list = [x | x -> list, x `mod` 2 == 0]
 ```
 
 
+## OCaml
+```ocaml
+(* OCaml *)
+let filter_even =
+  List.filter (fun x -> x mod 2 = 0)
+```
+
+
+## Erlang
+```erlang
+%% Erlang
+filter_even(List) ->
+  lists:filter(fun(X) -> X rem 2 =:= 0 end, List).
+
+filter_even2(List) ->
+  [X || X <- List, X rem 2 =:= 0].
+```
+
+
 ## Scala
 ```scala
 // Scala
@@ -108,33 +127,15 @@ def filterEven3(list: List[Int]): List[Int] = {
 ```
 
 
-## Erlang
-```erlang
-%% Erlang
-filter_even(List) ->
-  lists:filter(fun(X) -> X rem 2 =:= 0 end, List).
-
-filter_even2(List) ->
-  [X || X <- List, X rem 2 =:= 0].
-```
-
-
-## OCaml
-```ocaml
-let filter_even =
-  List.filter (fun x -> x mod 2 = 0)
-```
-
-
 ## Ruby
 ```ruby
 # Ruby
 def filter_even(list)
-  list.select {|x| x % 2 == 0}
+  list.select { |x| x % 2 == 0 }
 end
 
 def filter_even2(list)
-  list.select {|x| x.even?}
+  list.select { |x| x.even? }
 end
 ```
 
@@ -143,11 +144,11 @@ end
 ```groovy
 // Groovy
 static List<Integer> filterEven(List<Integer> list) {
-  list.findAll {x -> x % 2 == 0}
+  list.findAll { x -> x % 2 == 0 }
 }
 
 static List<Integer> filterEven2(List<Integer> list) {
-  list.findAll {it % 2 == 0}
+  list.findAll { it % 2 == 0 }
 }
 ```
 
@@ -158,6 +159,6 @@ static List<Integer> filterEven2(List<Integer> list) {
 sub filter_even {
   my ($list_ref) = @_;
 
-  return grep {$_ % 2 == 0} @$list_ref;
+  return grep { $_ % 2 == 0 } @$list_ref;
 }
 ```
