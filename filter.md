@@ -64,16 +64,16 @@ filterEven'' list = [x | x -> list, x `mod` 2 == 0]
 ```clojure
 ;; Clojure
 (defn filter-even [lst]
-  (filter (fn [x] (= (rem x 2) 0)) lst))
+  (filter (fn [x] (= (mod x 2) 0)) lst))
 
 (defn filter-even2 [lst]
-  (filter #(= (rem % 2) 0) lst))
+  (filter #(= (mod % 2) 0) lst))
 
 (defn filter-even3 [lst]
   (filter even? lst))
 
 (defn filter-even4 [lst]
-  (for [x lst :when (= (rem x 2) 0)] x))
+  (for [x lst :when (= (mod x 2) 0)] x))
 ```
 
 
@@ -81,13 +81,24 @@ filterEven'' list = [x | x -> list, x `mod` 2 == 0]
 ```lisp
 ;; Common Lisp
 (defun filter-even (lst)
-  (remove-if-not #'(lambda (x) (= (rem x 2) 0)) lst))
+  (remove-if-not #'(lambda (x) (= (mod x 2) 0)) lst))
 
 (defun filter-even2 (lst)
   (remove-if-not #'evenp lst))
 
 (defun filter-even3 (lst)
-  (loop for x in lst if (= (rem x 2) 0) collect x))
+  (loop for x in lst if (= (mod x 2) 0) collect x))
+```
+
+
+## Scheme
+```scheme
+;; Scheme
+(define (filter-even lst)
+  (filter (lambda (x) (= (mod x 2) 0)) lst))
+
+(define (filter-even2 lst)
+  (filter even? lst))
 ```
 
 

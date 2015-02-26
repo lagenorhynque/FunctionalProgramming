@@ -85,6 +85,14 @@ mapSquare'' list = [x ^ 2 | x <- list]
 ```
 
 
+## Scheme
+```scheme
+;; Scheme
+(define (map-square lst)
+  (map (lambda (x) (expt x 2)) lst))
+```
+
+
 ## OCaml
 ```ocaml
 (* OCaml *)

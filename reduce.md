@@ -87,6 +87,20 @@ reduceProduct'' = product
 ```
 
 
+## Scheme
+```scheme
+;; Scheme
+(define (reduce-product lst)
+  (reduce (lambda (x y) (* x y)) 1 lst))
+
+(define (reduce-product2 lst)
+  (reduce * 1 lst))
+
+(define (reduce-product3 lst)
+  (apply * lst))
+```
+
+
 ## OCaml
 ```ocaml
 (* OCaml *)
