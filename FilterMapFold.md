@@ -18,16 +18,16 @@ filter even [1..10]
 #### Clojure
 ```clojure
 ;; ラムダ式
-(filter (fn [x] (= (rem x 2) 0)) (range 1 11))
+(filter (fn [x] (= (mod x 2) 0)) (range 1 11))
 
 ;; ラムダ式のリーダマクロ
-(filter #(= (rem % 2) 0) (range 1 11))
+(filter #(= (mod % 2) 0) (range 1 11))
 
 ;; 関数even?
 (filter even? (range 1 11))
 
 ;; リスト内包表記による同等の処理
-(for [x (range 1 11) :when (= (rem x 2) 0)] x)
+(for [x (range 1 11) :when (= (mod x 2) 0)] x)
 ```
 
 ## ■ map
