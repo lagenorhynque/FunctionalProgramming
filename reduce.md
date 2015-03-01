@@ -4,8 +4,8 @@
 ```java
 // Java
 
-public static int reduceProduct1(final List<Integer> list) {
-  return list.stream()
+public static int reduceProduct1(final List<Integer> ns) {
+  return ns.stream()
     .reduce(1, (x, y) -> x * y);
 }
 ```
@@ -15,8 +15,8 @@ public static int reduceProduct1(final List<Integer> list) {
 ```javascript
 // JavaScript
 
-var reduceProduct1 = function (list) {
-  return list.reduce(function (x, y) {
+var reduceProduct1 = function (ns) {
+  return ns.reduce(function (x, y) {
     return x * y;
   }, 1);
 };
@@ -27,8 +27,8 @@ var reduceProduct1 = function (list) {
 ```coffeescript
 # CoffeeScript
 
-reduceProduct1 = (list) ->
-  list.reduce((x, y) ->
+reduceProduct1 = (ns) ->
+  ns.reduce((x, y) ->
     x * y
   , 1)
 ```
@@ -38,11 +38,11 @@ reduceProduct1 = (list) ->
 ```python
 # Python
 
-def reduce_product1(lst):
-    return functools.reduce(lambda x, y: x * y, lst, 1)
+def reduce_product1(ns):
+    return functools.reduce(lambda x, y: x * y, ns, 1)
 
-def reduce_product2(lst):
-    return functools.reduce(operator.mul, lst, 1)
+def reduce_product2(ns):
+    return functools.reduce(operator.mul, ns, 1)
 ```
 
 
@@ -65,17 +65,17 @@ reduceProduct3 = product
 ```clojure
 ;; Clojure
 
-(defn reduce-product1 [lst]
-  (reduce (fn [x y] (* x y)) 1 lst))
+(defn reduce-product1 [ns]
+  (reduce (fn [x y] (* x y)) 1 ns))
 
-(defn reduce-product2 [lst]
-  (reduce #(* %1 %2) 1 lst))
+(defn reduce-product2 [ns]
+  (reduce #(* %1 %2) 1 ns))
 
-(defn reduce-product3 [lst]
-  (reduce * 1 lst))
+(defn reduce-product3 [ns]
+  (reduce * 1 ns))
 
-(defn reduce-product4 [lst]
-  (apply * lst))
+(defn reduce-product4 [ns]
+  (apply * ns))
 ```
 
 
@@ -83,14 +83,14 @@ reduceProduct3 = product
 ```lisp
 ;; Common Lisp
 
-(defun reduce-product1 (lst)
-  (reduce #'(lambda (x y) (* x y)) lst :initial-value 1))
+(defun reduce-product1 (ns)
+  (reduce #'(lambda (x y) (* x y)) ns :initial-value 1))
 
-(defun reduce-product2 (lst)
-  (reduce #'* lst :initial-value 1))
+(defun reduce-product2 (ns)
+  (reduce #'* ns :initial-value 1))
 
-(defun reduce-product3 (lst)
-  (apply #'* lst))
+(defun reduce-product3 (ns)
+  (apply #'* ns))
 ```
 
 
@@ -98,14 +98,14 @@ reduceProduct3 = product
 ```scheme
 ;; Scheme
 
-(define (reduce-product1 lst)
-  (reduce (lambda (x y) (* x y)) 1 lst))
+(define (reduce-product1 ns)
+  (reduce (lambda (x y) (* x y)) 1 ns))
 
-(define (reduce-product2 lst)
-  (reduce * 1 lst))
+(define (reduce-product2 ns)
+  (reduce * 1 ns))
 
-(define (reduce-product3 lst)
-  (apply * lst))
+(define (reduce-product3 ns)
+  (apply * ns))
 ```
 
 
@@ -125,8 +125,8 @@ let reduce_product2 =
 ```erlang
 %% Erlang
 
-reduce_product1(List) ->
-  lists:foldl(fun(X, Y) -> X * Y end, 1, List).
+reduce_product1(Ns) ->
+  lists:foldl(fun(X, Y) -> X * Y end, 1, Ns).
 ```
 
 
@@ -134,16 +134,16 @@ reduce_product1(List) ->
 ```scala
 // Scala
 
-def reduceProduct1(list: List[Int]): Int = {
-  list.foldLeft(1)((x, y) => x * y)
+def reduceProduct1(ns: List[Int]): Int = {
+  ns.foldLeft(1)((x, y) => x * y)
 }
 
-def reduceProduct2(list: List[Int]): Int = {
-  list.foldLeft(1)(_ * _)
+def reduceProduct2(ns: List[Int]): Int = {
+  ns.foldLeft(1)(_ * _)
 }
 
-def reduceProduct3(list: List[Int]): Int = {
-  list.product
+def reduceProduct3(ns: List[Int]): Int = {
+  ns.product
 }
 ```
 
@@ -152,12 +152,12 @@ def reduceProduct3(list: List[Int]): Int = {
 ```ruby
 # Ruby
 
-def reduce_product1(list)
-  list.inject(1) { |x, y| x * y }
+def reduce_product1(ns)
+  ns.inject(1) { |x, y| x * y }
 end
 
-def reduce_product2(list)
-  list.inject(1, :*)
+def reduce_product2(ns)
+  ns.inject(1, :*)
 end
 ```
 
@@ -166,8 +166,8 @@ end
 ```groovy
 // Groovy
 
-static int reduceProduct1(List<Integer> list) {
-  list.inject(1) { x, y -> x * y }
+static int reduceProduct1(List<Integer> ns) {
+  ns.inject(1) { x, y -> x * y }
 }
 ```
 
@@ -177,14 +177,14 @@ static int reduceProduct1(List<Integer> list) {
 # Perl
 
 sub reduce_product1 {
-  my ($list_ref) = @_;
+  my ($ns_ref) = @_;
 
-  return List::Util::reduce { $a * $b } 1, @$list_ref;
+  return List::Util::reduce { $a * $b } 1, @$ns_ref;
 }
 
 sub reduce_product2 {
-  my ($list_ref) = @_;
+  my ($ns_ref) = @_;
 
-  return List::Util::product @$list_ref;
+  return List::Util::product @$ns_ref;
 }
 ```

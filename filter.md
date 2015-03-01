@@ -4,8 +4,8 @@
 ```java
 // Java
 
-public static List<Integer> filterEven1(final List<Integer> list) {
-  return list.stream()
+public static List<Integer> filterEven1(final List<Integer> ns) {
+  return ns.stream()
     .filter(x -> x % 2 == 0)
     .collect(Collectors.toList());
 }
@@ -16,8 +16,8 @@ public static List<Integer> filterEven1(final List<Integer> list) {
 ```javascript
 // JavaScript
 
-var filterEven1 = function (list) {
-  return list.filter(function (x) {
+var filterEven1 = function (ns) {
+  return ns.filter(function (x) {
     return x % 2 === 0;
   });
 };
@@ -28,13 +28,13 @@ var filterEven1 = function (list) {
 ```coffeescript
 # CoffeeScript
 
-filterEven1 = (list) ->
-  list.filter((x) ->
+filterEven1 = (ns) ->
+  ns.filter((x) ->
     x % 2 is 0
   )
 
-filterEven2 = (list) ->
-  (x for x in list when x % 2 is 0)
+filterEven2 = (ns) ->
+  (n for n in ns when n % 2 is 0)
 ```
 
 
@@ -42,11 +42,11 @@ filterEven2 = (list) ->
 ```python
 # Python
 
-def filter_even1(lst):
-    return list(filter(lambda x: x % 2 == 0, lst))
+def filter_even1(ns):
+    return list(filter(lambda x: x % 2 == 0, ns))
 
-def filter_even2(lst):
-    return [x for x in lst if x % 2 == 0]
+def filter_even2(ns):
+    return [n for n in ns if n % 2 == 0]
 ```
 
 
@@ -61,7 +61,7 @@ filterEven2 :: [Int] -> [Int]
 filterEven2 = filter even
 
 filterEven3 :: [Int] -> [Int]
-filterEven3 list = [x | x <- list, x `mod` 2 == 0]
+filterEven3 ns = [n | n <- ns, n `mod` 2 == 0]
 ```
 
 
@@ -69,17 +69,17 @@ filterEven3 list = [x | x <- list, x `mod` 2 == 0]
 ```clojure
 ;; Clojure
 
-(defn filter-even1 [lst]
-  (filter (fn [x] (= (mod x 2) 0)) lst))
+(defn filter-even1 [ns]
+  (filter (fn [x] (= (mod x 2) 0)) ns))
 
-(defn filter-even2 [lst]
-  (filter #(= (mod % 2) 0) lst))
+(defn filter-even2 [ns]
+  (filter #(= (mod % 2) 0) ns))
 
-(defn filter-even3 [lst]
-  (filter even? lst))
+(defn filter-even3 [ns]
+  (filter even? ns))
 
-(defn filter-even4 [lst]
-  (for [x lst :when (= (mod x 2) 0)] x))
+(defn filter-even4 [ns]
+  (for [n ns :when (= (mod n 2) 0)] n))
 ```
 
 
@@ -87,14 +87,14 @@ filterEven3 list = [x | x <- list, x `mod` 2 == 0]
 ```lisp
 ;; Common Lisp
 
-(defun filter-even1 (lst)
-  (remove-if-not #'(lambda (x) (= (mod x 2) 0)) lst))
+(defun filter-even1 (ns)
+  (remove-if-not #'(lambda (x) (= (mod x 2) 0)) ns))
 
-(defun filter-even2 (lst)
-  (remove-if-not #'evenp lst))
+(defun filter-even2 (ns)
+  (remove-if-not #'evenp ns))
 
-(defun filter-even3 (lst)
-  (loop for x in lst if (= (mod x 2) 0) collect x))
+(defun filter-even3 (ns)
+  (loop for n in ns if (= (mod n 2) 0) collect n))
 ```
 
 
@@ -102,11 +102,11 @@ filterEven3 list = [x | x <- list, x `mod` 2 == 0]
 ```scheme
 ;; Scheme
 
-(define (filter-even1 lst)
-  (filter (lambda (x) (= (mod x 2) 0)) lst))
+(define (filter-even1 ns)
+  (filter (lambda (x) (= (mod x 2) 0)) ns))
 
-(define (filter-even2 lst)
-  (filter even? lst))
+(define (filter-even2 ns)
+  (filter even? ns))
 ```
 
 
@@ -123,11 +123,11 @@ let filter_even1 =
 ```erlang
 %% Erlang
 
-filter_even1(List) ->
-  lists:filter(fun(X) -> X rem 2 =:= 0 end, List).
+filter_even1(Ns) ->
+  lists:filter(fun(X) -> X rem 2 =:= 0 end, Ns).
 
-filter_even2(List) ->
-  [X || X <- List, X rem 2 =:= 0].
+filter_even2(Ns) ->
+  [N || N <- Ns, N rem 2 =:= 0].
 ```
 
 
@@ -135,16 +135,16 @@ filter_even2(List) ->
 ```scala
 // Scala
 
-def filterEven1(list: List[Int]): List[Int] = {
-  list.filter(x => x % 2 == 0)
+def filterEven1(ns: List[Int]): List[Int] = {
+  ns.filter(x => x % 2 == 0)
 }
 
-def filterEven2(list: List[Int]): List[Int] = {
-  list.filter(_ % 2 == 0)
+def filterEven2(ns: List[Int]): List[Int] = {
+  ns.filter(_ % 2 == 0)
 }
 
-def filterEven3(list: List[Int]): List[Int] = {
-  for (x <- list if x % 2 == 0) yield x
+def filterEven3(ns: List[Int]): List[Int] = {
+  for (n <- ns if n % 2 == 0) yield n
 }
 ```
 
@@ -153,12 +153,12 @@ def filterEven3(list: List[Int]): List[Int] = {
 ```ruby
 # Ruby
 
-def filter_even1(list)
-  list.select { |x| x % 2 == 0 }
+def filter_even1(ns)
+  ns.select { |x| x % 2 == 0 }
 end
 
-def filter_even2(list)
-  list.select { |x| x.even? }
+def filter_even2(ns)
+  ns.select { |x| x.even? }
 end
 ```
 
@@ -167,12 +167,12 @@ end
 ```groovy
 // Groovy
 
-static List<Integer> filterEven1(List<Integer> list) {
-  list.findAll { x -> x % 2 == 0 }
+static List<Integer> filterEven1(List<Integer> ns) {
+  ns.findAll { x -> x % 2 == 0 }
 }
 
-static List<Integer> filterEven2(List<Integer> list) {
-  list.findAll { it % 2 == 0 }
+static List<Integer> filterEven2(List<Integer> ns) {
+  ns.findAll { it % 2 == 0 }
 }
 ```
 
@@ -182,8 +182,8 @@ static List<Integer> filterEven2(List<Integer> list) {
 # Perl
 
 sub filter_even1 {
-  my ($list_ref) = @_;
+  my ($ns_ref) = @_;
 
-  return grep { $_ % 2 == 0 } @$list_ref;
+  return grep { $_ % 2 == 0 } @$ns_ref;
 }
 ```
