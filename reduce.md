@@ -3,7 +3,8 @@
 ## Java
 ```java
 // Java
-public static int reduceProduct(final List<Integer> list) {
+
+public static int reduceProduct1(final List<Integer> list) {
   return list.stream()
     .reduce(1, (x, y) -> x * y);
 }
@@ -13,7 +14,8 @@ public static int reduceProduct(final List<Integer> list) {
 ## JavaScript
 ```javascript
 // JavaScript
-var reduceProduct = function (list) {
+
+var reduceProduct1 = function (list) {
   return list.reduce(function (x, y) {
     return x * y;
   }, 1);
@@ -24,7 +26,8 @@ var reduceProduct = function (list) {
 ## CoffeeScript
 ```coffeescript
 # CoffeeScript
-reduceProduct = (list) ->
+
+reduceProduct1 = (list) ->
   list.reduce((x, y) ->
     x * y
   , 1)
@@ -34,7 +37,8 @@ reduceProduct = (list) ->
 ## Python
 ```python
 # Python
-def reduce_product(lst):
+
+def reduce_product1(lst):
     return functools.reduce(lambda x, y: x * y, lst, 1)
 
 def reduce_product2(lst):
@@ -45,21 +49,23 @@ def reduce_product2(lst):
 ## Haskell
 ```haskell
 -- Haskell
-reduceProduct :: [Int] -> Int
-reduceProduct = foldl' (\x y -> x * y) 1
 
-reduceProduct' :: [Int] -> Int
-reduceProduct' = foldl' (*) 1
+reduceProduct1 :: [Int] -> Int
+reduceProduct1 = foldl' (\x y -> x * y) 1
 
-reduceProduct'' :: [Int] -> Int
-reduceProduct'' = product
+reduceProduct2 :: [Int] -> Int
+reduceProduct2 = foldl' (*) 1
+
+reduceProduct3 :: [Int] -> Int
+reduceProduct3 = product
 ```
 
 
 ## Clojure
 ```clojure
 ;; Clojure
-(defn reduce-product [lst]
+
+(defn reduce-product1 [lst]
   (reduce (fn [x y] (* x y)) 1 lst))
 
 (defn reduce-product2 [lst]
@@ -76,7 +82,8 @@ reduceProduct'' = product
 ## Common Lisp
 ```lisp
 ;; Common Lisp
-(defun reduce-product (lst)
+
+(defun reduce-product1 (lst)
   (reduce #'(lambda (x y) (* x y)) lst :initial-value 1))
 
 (defun reduce-product2 (lst)
@@ -90,7 +97,8 @@ reduceProduct'' = product
 ## Scheme
 ```scheme
 ;; Scheme
-(define (reduce-product lst)
+
+(define (reduce-product1 lst)
   (reduce (lambda (x y) (* x y)) 1 lst))
 
 (define (reduce-product2 lst)
@@ -104,10 +112,11 @@ reduceProduct'' = product
 ## OCaml
 ```ocaml
 (* OCaml *)
-let reduce_product =
+
+let reduce_product1 =
   List.fold_left (fun x y -> x * y) 1
 
-let reduce_product' =
+let reduce_product2 =
   List.fold_left ( * ) 1
 ```
 
@@ -115,7 +124,8 @@ let reduce_product' =
 ## Erlang
 ```erlang
 %% Erlang
-reduce_product(List) ->
+
+reduce_product1(List) ->
   lists:foldl(fun(X, Y) -> X * Y end, 1, List).
 ```
 
@@ -123,7 +133,8 @@ reduce_product(List) ->
 ## Scala
 ```scala
 // Scala
-def reduceProduct(list: List[Int]): Int = {
+
+def reduceProduct1(list: List[Int]): Int = {
   list.foldLeft(1)((x, y) => x * y)
 }
 
@@ -140,7 +151,8 @@ def reduceProduct3(list: List[Int]): Int = {
 ## Ruby
 ```ruby
 # Ruby
-def reduce_product(list)
+
+def reduce_product1(list)
   list.inject(1) { |x, y| x * y }
 end
 
@@ -153,7 +165,8 @@ end
 ## Groovy
 ```groovy
 // Groovy
-static int reduceProduct(List<Integer> list) {
+
+static int reduceProduct1(List<Integer> list) {
   list.inject(1) { x, y -> x * y }
 }
 ```
@@ -162,7 +175,8 @@ static int reduceProduct(List<Integer> list) {
 ## Perl
 ```perl
 # Perl
-sub reduce_product {
+
+sub reduce_product1 {
   my ($list_ref) = @_;
 
   return List::Util::reduce { $a * $b } 1, @$list_ref;

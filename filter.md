@@ -3,7 +3,8 @@
 ## Java
 ```java
 // Java
-public static List<Integer> filterEven(final List<Integer> list) {
+
+public static List<Integer> filterEven1(final List<Integer> list) {
   return list.stream()
     .filter(x -> x % 2 == 0)
     .collect(Collectors.toList());
@@ -14,7 +15,8 @@ public static List<Integer> filterEven(final List<Integer> list) {
 ## JavaScript
 ```javascript
 // JavaScript
-var filterEven = function (list) {
+
+var filterEven1 = function (list) {
   return list.filter(function (x) {
     return x % 2 === 0;
   });
@@ -25,7 +27,8 @@ var filterEven = function (list) {
 ## CoffeeScript
 ```coffeescript
 # CoffeeScript
-filterEven = (list) ->
+
+filterEven1 = (list) ->
   list.filter((x) ->
     x % 2 is 0
   )
@@ -38,7 +41,8 @@ filterEven2 = (list) ->
 ## Python
 ```python
 # Python
-def filter_even(lst):
+
+def filter_even1(lst):
     return list(filter(lambda x: x % 2 == 0, lst))
 
 def filter_even2(lst):
@@ -49,21 +53,23 @@ def filter_even2(lst):
 ## Haskell
 ```haskell
 -- Haskell
-filterEven :: [Int] -> [Int]
-filterEven = filter (\x -> x `mod` 2 == 0)
 
-filterEven' :: [Int] -> [Int]
-filterEven' = filter even
+filterEven1 :: [Int] -> [Int]
+filterEven1 = filter (\x -> x `mod` 2 == 0)
 
-filterEven'' :: [Int] -> [Int]
-filterEven'' list = [x | x -> list, x `mod` 2 == 0]
+filterEven2 :: [Int] -> [Int]
+filterEven2 = filter even
+
+filterEven3 :: [Int] -> [Int]
+filterEven3 list = [x | x -> list, x `mod` 2 == 0]
 ```
 
 
 ## Clojure
 ```clojure
 ;; Clojure
-(defn filter-even [lst]
+
+(defn filter-even1 [lst]
   (filter (fn [x] (= (mod x 2) 0)) lst))
 
 (defn filter-even2 [lst]
@@ -80,7 +86,8 @@ filterEven'' list = [x | x -> list, x `mod` 2 == 0]
 ## Common Lisp
 ```lisp
 ;; Common Lisp
-(defun filter-even (lst)
+
+(defun filter-even1 (lst)
   (remove-if-not #'(lambda (x) (= (mod x 2) 0)) lst))
 
 (defun filter-even2 (lst)
@@ -94,7 +101,8 @@ filterEven'' list = [x | x -> list, x `mod` 2 == 0]
 ## Scheme
 ```scheme
 ;; Scheme
-(define (filter-even lst)
+
+(define (filter-even1 lst)
   (filter (lambda (x) (= (mod x 2) 0)) lst))
 
 (define (filter-even2 lst)
@@ -105,7 +113,8 @@ filterEven'' list = [x | x -> list, x `mod` 2 == 0]
 ## OCaml
 ```ocaml
 (* OCaml *)
-let filter_even =
+
+let filter_even1 =
   List.filter (fun x -> x mod 2 = 0)
 ```
 
@@ -113,7 +122,8 @@ let filter_even =
 ## Erlang
 ```erlang
 %% Erlang
-filter_even(List) ->
+
+filter_even1(List) ->
   lists:filter(fun(X) -> X rem 2 =:= 0 end, List).
 
 filter_even2(List) ->
@@ -124,7 +134,8 @@ filter_even2(List) ->
 ## Scala
 ```scala
 // Scala
-def filterEven(list: List[Int]): List[Int] = {
+
+def filterEven1(list: List[Int]): List[Int] = {
   list.filter(x => x % 2 == 0)
 }
 
@@ -141,7 +152,8 @@ def filterEven3(list: List[Int]): List[Int] = {
 ## Ruby
 ```ruby
 # Ruby
-def filter_even(list)
+
+def filter_even1(list)
   list.select { |x| x % 2 == 0 }
 end
 
@@ -154,7 +166,8 @@ end
 ## Groovy
 ```groovy
 // Groovy
-static List<Integer> filterEven(List<Integer> list) {
+
+static List<Integer> filterEven1(List<Integer> list) {
   list.findAll { x -> x % 2 == 0 }
 }
 
@@ -167,7 +180,8 @@ static List<Integer> filterEven2(List<Integer> list) {
 ## Perl
 ```perl
 # Perl
-sub filter_even {
+
+sub filter_even1 {
   my ($list_ref) = @_;
 
   return grep { $_ % 2 == 0 } @$list_ref;
