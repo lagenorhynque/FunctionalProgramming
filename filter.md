@@ -61,7 +61,7 @@ filterEven2 :: [Int] -> [Int]
 filterEven2 = filter even
 
 filterEven3 :: [Int] -> [Int]
-filterEven3 list = [x | x -> list, x `mod` 2 == 0]
+filterEven3 list = [x | x <- list, x `mod` 2 == 0]
 ```
 
 
