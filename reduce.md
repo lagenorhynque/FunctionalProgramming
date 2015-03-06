@@ -99,10 +99,10 @@ reduceProduct3 = product
 ;; Scheme
 
 (define (reduce-product1 ns)
-  (reduce (lambda (x y) (* x y)) 1 ns))
+  (fold (lambda (x y) (* x y)) 1 ns))
 
 (define (reduce-product2 ns)
-  (reduce * 1 ns))
+  (fold * 1 ns))
 
 (define (reduce-product3 ns)
   (apply * ns))
