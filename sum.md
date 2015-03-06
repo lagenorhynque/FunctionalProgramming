@@ -1,7 +1,7 @@
 sum関数の実装例
 ==============
 
-## プログラミングスタイル
+## ■ プログラミングスタイル
 - 手続き型(procedural)プログラミング
     - 命令型(imperative)プログラミングの一種
     - 機械(計算機)に近いアプローチ
@@ -16,13 +16,13 @@ sum関数の実装例
 Rubyを利用して、要素数$l$の配列(またはリスト)$ns$の要素$n_i$の和を求める関数sumを実装する。
 
 
-## 数学的定義
+## ■ 数学的定義
 数列の和(sum)
 
 $\sum\limits_{i=0}^{l-1} n_i = n_0 + n_1 + n_2 + ... + n_{l-2} + n_{l-1}$
 
 
-## 手続き型スタイル1: ループ(while)
+## ■ 手続き型スタイル1: ループ(while)
 ```ruby
 # while式による単純なループ
 def sum1(ns)
@@ -49,7 +49,7 @@ end
 | (終了後) | 5 |   -   | 15 |
 
 
-## 手続き型スタイル2: イテレータ(for)
+## ■ 手続き型スタイル2: イテレータ(for)
 ```ruby
 # for式によるイテレーション
 def sum2(ns)
@@ -78,7 +78,7 @@ end
 ```
 
 
-## 関数型スタイル1: 再帰
+## ■ 関数型スタイル1: 再帰
 ```ruby
 # 単純な再帰
 def sum4(ns)
@@ -157,8 +157,45 @@ end
 -> 15
 ```
 
+#### 【参考】 関数型言語の場合
+##### Haskell
 
-## 関数型スタイル2: 高階関数(inject/別名reduce)
+```haskell
+-- 単純な再帰
+sum4 :: Num a => [a] -> a
+sum4 []     = 0
+sum4 (x:xs) = x + sum4 xs
+
+-- 末尾再帰
+sum5 :: Num a => [a] -> a
+sum5 = rec 0
+  where
+    rec s []     = s
+    rec s (x:xs) = rec (x + s) xs
+```
+
+##### Clojure
+
+```clojure
+;; 単純な再帰
+(defn sum4 [ns]
+  (if (empty? ns)
+    0
+    (let [[x & xs] ns]
+      (+ x (sum4 xs)))))
+
+;; 末尾再帰
+(defn sum5 [ns]
+  (letfn [(rec [xs s]
+            (if (empty? xs)
+              s
+              (let [[y & ys] xs]
+                (recur ys (+ y s)))))]
+    (rec ns 0)))
+```
+
+
+## ■ 関数型スタイル2: 高階関数(inject/別名reduce)
 ```ruby
 # Enumerable#injectメソッド
 def sum7(ns)
@@ -176,4 +213,33 @@ end
 def sum8(ns)
   ns.inject(0, :+)
 end
+```
+
+#### 【参考】 関数型言語の場合
+##### Haskell
+
+```haskell
+-- 高階関数foldl'
+sum7 :: Num a => [a] -> a
+sum7 = foldl' (\x y -> x + y) 0
+
+-- ラムダ式の代わりに演算子+を利用
+sum8 :: Num a => [a] -> a
+sum8 = foldl' (+) 0
+```
+
+##### Clojure
+
+```clojure
+;; 高階関数reduce
+(defn sum7 [ns]
+  (reduce (fn [x y] (+ x y)) 0 ns))
+
+;; ラムダ式のリーダマクロを利用
+(defn sum7_2 [ns]
+  (reduce #(+ %1 %2) 0 ns))
+
+;; ラムダ式の代わりに関数+を利用
+(defn sum8 [ns]
+  (reduce + 0 ns))
 ```

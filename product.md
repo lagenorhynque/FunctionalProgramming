@@ -1,7 +1,7 @@
 product関数の実装例
 ==================
 
-## プログラミング言語
+## ■ プログラミング言語
 - 手続き型(procedural)言語
 - オブジェクト指向(object-oriented)言語
 - 関数型(functional)言語
@@ -12,13 +12,13 @@ product関数の実装例
 様々な言語で、要素数$l$の配列(またはリスト)$ns$の要素$n_i$の積を求める関数productを実装する。
 
 
-## 数学的定義
+## ■ 数学的定義
 数列の積(product)
 
 $\prod\limits_{i=0}^{l-1} n_i = n_0 \times n_1 \times n_2 \times ... \times n_{l-2} \times n_{l-1}$
 
 
-## Java
+## ■ Java
 ```java
 // Java
 
@@ -38,7 +38,7 @@ public static int product2(final List<Integer> ns) {
 ```
 
 
-## JavaScript
+## ■ JavaScript
 ```javascript
 // JavaScript
 
@@ -62,7 +62,7 @@ var product2 = function (ns) {
 ```
 
 
-## CoffeeScript
+## ■ CoffeeScript
 ```coffeescript
 # CoffeeScript
 
@@ -73,7 +73,7 @@ product1 = (ns) ->
 ```
 
 
-## Python
+## ■ Python
 ```python
 # Python
 
@@ -91,7 +91,7 @@ def product3(ns):
 ```
 
 
-## Haskell
+## ■ Haskell
 ```haskell
 -- Haskell
 
@@ -106,7 +106,7 @@ product3 = product
 ```
 
 
-## Clojure
+## ■ Clojure
 ```clojure
 ;; Clojure
 
@@ -124,7 +124,7 @@ product3 = product
 ```
 
 
-## Common Lisp
+## ■ Common Lisp
 ```lisp
 ;; Common Lisp
 
@@ -139,22 +139,22 @@ product3 = product
 ```
 
 
-## Scheme
+## ■ Scheme
 ```scheme
 ;; Scheme
 
 (define (product1 ns)
-  (reduce (lambda (x y) (* x y)) 1 ns))
+  (fold (lambda (x y) (* x y)) 1 ns))
 
 (define (product2 ns)
-  (reduce * 1 ns))
+  (fold * 1 ns))
 
 (define (product3 ns)
   (apply * ns))
 ```
 
 
-## OCaml
+## ■ OCaml
 ```ocaml
 (* OCaml *)
 
@@ -166,7 +166,7 @@ let product2 =
 ```
 
 
-## Erlang
+## ■ Erlang
 ```erlang
 %% Erlang
 
@@ -175,7 +175,7 @@ product1(Ns) ->
 ```
 
 
-## Scala
+## ■ Scala
 ```scala
 // Scala
 
@@ -193,7 +193,7 @@ def product3(ns: List[Int]): Int = {
 ```
 
 
-## Ruby
+## ■ Ruby
 ```ruby
 # Ruby
 
@@ -207,7 +207,7 @@ end
 ```
 
 
-## Groovy
+## ■ Groovy
 ```groovy
 // Groovy
 
@@ -217,7 +217,7 @@ static int product1(List<Integer> ns) {
 ```
 
 
-## Perl
+## ■ Perl
 ```perl
 # Perl
 
