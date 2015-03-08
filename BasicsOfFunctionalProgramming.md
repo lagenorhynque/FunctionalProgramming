@@ -219,6 +219,7 @@ fibonacci6 i = iterate (prod [1, 1, 1, 0]) [1, 0, 0, 1] !! i !! 1
        a21 * b11 + a22 * b21, a21 * b12 + a22 * b22]
 ```
 ```clojure
+;; Clojure
 (defn fibonacci6 [i]
   (letfn [(prod [[a11 a12 a21 a22] [b11 b12 b21 b22]]
             [(+ (* a11 b11) (* a12 b21)) (+ (* a11 b12) (* a12 b22))
@@ -248,6 +249,7 @@ fibonacci6' i = pow prod [1, 1, 1, 0] i [1, 0, 0, 1] !! 1
        a21 * b11 + a22 * b21, a21 * b12 + a22 * b22]
 ```
 ```clojure
+;; Clojure
 (defn fibonacci6' [i]
   (letfn [(pow [f x n a]
             (cond
