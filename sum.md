@@ -192,6 +192,49 @@ sum5 = rec 0
               (let [[y & ys] xs]
                 (recur ys (+ y s)))))]
     (rec ns 0)))
+
+;; アリティオーバーロードを利用した末尾再帰
+(defn sum6
+  ([ns]
+    (sum6 ns 0))
+  ([ns s]
+    (if (empty? ns)
+      s
+      (let [[x & xs] ns]
+        (recur xs (+ x s))))))
+```
+
+##### Scala
+
+```scala
+// 単純な再帰
+def sum4(ns: List[Int]): Int = {
+  ns match {
+    case Nil => 0
+    case x :: xs => x + sum4(xs)
+  }
+}
+
+// 末尾再帰
+def sum5(ns: List[Int]): Int = {
+  @tailrec
+  def rec(xs: List[Int], s: Int): Int = {
+    xs match {
+      case Nil => s
+      case y :: ys => rec(ys, y + s)
+    }
+  }
+  rec(ns, 0)
+}
+
+// デフォルト引数を利用した末尾再帰
+@tailrec
+def sum6(ns: List[Int], s: Int = 0): Int = {
+  ns match {
+    case Nil => s
+    case x :: xs => sum6(xs, x + s)
+  }
+}
 ```
 
 
@@ -209,7 +252,7 @@ def sum7_2(ns)
   ns.inject(0) { |x, y| x + y }
 end
 
-# ブロックの代わりにシンボルを利用
+# ブロックの代わりにメソッド+のシンボルを利用
 def sum8(ns)
   ns.inject(0, :+)
 end
@@ -223,7 +266,7 @@ end
 sum7 :: Num a => [a] -> a
 sum7 = foldl' (\x y -> x + y) 0
 
--- ラムダ式の代わりに演算子+を利用
+-- ラムダ式の代わりに演算子+を関数化して利用
 sum8 :: Num a => [a] -> a
 sum8 = foldl' (+) 0
 ```
@@ -242,4 +285,18 @@ sum8 = foldl' (+) 0
 ;; ラムダ式の代わりに関数+を利用
 (defn sum8 [ns]
   (reduce + 0 ns))
+```
+
+##### Scala
+
+```scala
+// 高階関数foldLeft
+def sum7(ns: List[Int]): Int = {
+  ns.foldLeft(0)((x, y) => x + y)
+}
+
+// ラムダ式の代わりにメソッド+とプレースホルダ構文を利用
+def sum8(ns: List[Int]): Int = {
+  ns.foldLeft(0)(_ + _)
+}
 ```
