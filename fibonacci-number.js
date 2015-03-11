@@ -142,4 +142,4 @@
   // console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci5).toArray());
   console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci6).toArray());
   console.log(Lazy.range(0, 11).map(FibonacciNumber.fibonacci6_2).toArray());
-}.call(this));
+}).call(this);
