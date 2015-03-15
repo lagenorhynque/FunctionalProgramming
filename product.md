@@ -9,13 +9,23 @@ product関数の実装例
 
 
 ----------------------------------------
-様々な言語で、要素数$l$の配列(またはリスト)$ns$の要素$n_i$の積を求める関数productを実装する。
+様々な言語で、要素数$l$の配列(またはリスト)$ns$の要素の積を求める関数productを実装する。
 
 
 ## ■ 数学的定義
-数列の積(product)
+#### 数列の総乗(product)
 
-$\prod\limits_{i=0}^{l-1} n_i = n_0 \times n_1 \times n_2 \times ... \times n_{l-2} \times n_{l-1}$
+数列$\langle a_n \rangle$の第$i$項までの積を$p_i$とすると
+
+> $p_0 = a_0$
+
+> $p_i = p_{i-1} \times a_i$
+
+総乗の記号$\prod$で表すと
+
+> $\prod\limits_{i=0}^{l-1} a_i = p_{l-1} = a_0 \times a_1 \times a_2 \times ... \times a_{l-2} \times a_{l-1}$
+
+> $\prod\emptyset = 1$
 
 
 ## ■ Java
