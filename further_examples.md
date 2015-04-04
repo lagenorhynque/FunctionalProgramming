@@ -121,7 +121,7 @@ def oddNames1_2(names: List[String]): List[String] = {
 
 
 ## 実装例2. 高階関数filterとmap
-上記のループや高階関数reduceで実装した処理は、リストの要素の「抽出」と「変換」という2段階に分けて考えると、それぞれ高階関数filter、高階関数mapが利用できる。
+上記のループや高階関数reduceで実装した処理は、リストの要素の「抽出」と「変換」という2段階に分けて考えると、それぞれ高階関数filter、mapが利用できる。
 
 ##### Python
 
