@@ -57,8 +57,8 @@ def odd_names1(names):
 oddNames1 :: [String] -> [String]
 oddNames1 = sort . foldl' oddName []
   where
-    capitalize ""     = ""
-    capitalize (x:xs) = toUpper x : map toLower xs
+    capitalize []     = []
+    capitalize (c:cs) = toUpper c : map toLower cs
     oddName res name
       | odd $ length name = capitalize name : res
       | otherwise         = res
@@ -70,8 +70,8 @@ oddNames1_2 = sort . foldl' (\res name ->
     then capitalize name : res
     else res) []
   where
-    capitalize ""     = ""
-    capitalize (x:xs) = toUpper x : map toLower xs
+    capitalize []     = []
+    capitalize (c:cs) = toUpper c : map toLower cs
 ```
 
 ##### Clojure
@@ -142,8 +142,8 @@ def odd_names2(names):
 oddNames2 :: [String] -> [String]
 oddNames2 = sort . map capitalize . filter (odd . length)
   where
-    capitalize ""     = ""
-    capitalize (x:xs) = toUpper x : map toLower xs
+    capitalize []     = []
+    capitalize (c:cs) = toUpper c : map toLower cs
 ```
 
 ##### Clojure
@@ -190,8 +190,8 @@ def odd_names3_2(names):
 oddNames3 :: [String] -> [String]
 oddNames3 names = sort [capitalize name | name <- names, odd $ length name]
   where
-    capitalize ""     = ""
-    capitalize (x:xs) = toUpper x : map toLower xs
+    capitalize []     = []
+    capitalize (c:cs) = toUpper c : map toLower cs
 ```
 
 ##### Clojure
