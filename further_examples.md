@@ -207,6 +207,6 @@ oddNames3 names = sort [capitalize name | name <- names, odd $ length name]
 ```scala
 // シーケンス内包表記
 def oddNames3(names: List[String]): List[String] = {
-  (for(name <- names if name.length % 2 != 0) yield name.capitalize).sorted
+  (for (name <- names if name.length % 2 != 0) yield name.capitalize).sorted
 }
 ```
