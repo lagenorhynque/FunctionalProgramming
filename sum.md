@@ -327,7 +327,7 @@ let sum7 =
 
 (* ラムダ式の代わりに演算子+を関数化して利用 *)
 let sum8 =
-  List.fold_left ( + ) 0
+  List.fold_left (+) 0
 ```
 
 ##### Scala
