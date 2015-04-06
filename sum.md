@@ -214,6 +214,27 @@ sum5 = rec 0
         (recur xs (+ x s))))))
 ```
 
+##### OCaml
+
+```ocaml
+(* 単純な再帰 *)
+let rec sum4 = function
+  | [] -> 0
+  | x :: xs -> x + sum4 xs
+
+(* 末尾再帰 *)
+let sum5 =
+  let rec recur s = function
+  | [] -> s
+  | x :: xs -> recur (x + s) xs in
+  recur 0
+
+(* デフォルト引数を利用した末尾再帰 *)
+let rec sum6 ?(s=0) = function
+  | [] -> s
+  | x :: xs -> sum6 ~s:(x + s) xs
+```
+
 ##### Scala
 
 ```scala
@@ -295,6 +316,18 @@ sum8 = foldl' (+) 0
 ;; ラムダ式の代わりに関数+を利用
 (defn sum8 [ns]
   (reduce + 0 ns))
+```
+
+##### OCaml
+
+```ocaml
+(* 高階関数fold_left *)
+let sum7 =
+  List.fold_left (fun x y -> x + y) 0
+
+(* ラムダ式の代わりに演算子+を関数化して利用 *)
+let sum8 =
+  List.fold_left ( + ) 0
 ```
 
 ##### Scala

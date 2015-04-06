@@ -94,6 +94,26 @@ oddNames1_2 = sort . foldl' (\res name ->
                 [] names)))
 ```
 
+##### OCaml
+
+```ocaml
+(* 高階関数fold_left *)
+let odd_names1 names =
+  let odd_name res = function
+  | name when (String.length name) mod 2 <> 0 ->
+    String.capitalize name :: res
+  | _ -> res in
+  List.sort compare (List.fold_left odd_name [] names)
+
+(* fold_leftの引数にラムダ式を利用 *)
+let odd_names1_2 names =
+  List.sort compare (List.fold_left (fun res name ->
+    match name with
+    | name when (String.length name) mod 2 <> 0 ->
+      String.capitalize name :: res
+    | _ -> res) [] names)
+```
+
 ##### Scala
 
 ```scala
@@ -158,6 +178,22 @@ oddNames2 = sort . map capitalize . filter (odd . length)
   (->> names (filter #(odd? (count %))) (map #(capitalize %)) sort))
 ```
 
+##### OCaml
+
+```ocaml
+(* 高階関数filterとmap *)
+let odd_names2 names =
+  let is_odd_len x =
+    (String.length x) mod 2 <> 0 in
+  List.sort compare (List.map String.capitalize (List.filter is_odd_len names))
+
+(* 演算子|>を利用 *)
+let odd_names2_2 names =
+  let is_odd_len x =
+    (String.length x) mod 2 <> 0 in
+  names |> List.filter is_odd_len |> List.map String.capitalize |> List.sort compare
+```
+
 ##### Scala
 
 ```scala
@@ -200,6 +236,12 @@ oddNames3 names = sort [capitalize name | name <- names, odd $ length name]
 ;; シーケンス内包表記
 (defn odd-names3 [names]
   (sort (for [name names :when (odd? (count name))] (capitalize name))))
+```
+
+##### OCaml
+
+```ocaml
+(* 標準機能にはない…… *)
 ```
 
 ##### Scala
