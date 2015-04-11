@@ -10,6 +10,7 @@ FunctionalProgramming
 1. Java
 1. JavaScript
 1. CoffeeScript
+1. TypeScript
 1. Python
 1. Haskell
 1. Clojure
