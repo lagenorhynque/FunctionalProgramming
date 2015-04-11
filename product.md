@@ -83,6 +83,18 @@ product1 = (ns) ->
 ```
 
 
+## ■ TypeScript
+```typescript
+// TypeScript
+
+var product1 = function (ns: Array<number>): number {
+  return ns.reduce((x, y) => {
+    return x * y;
+  }, 1);
+};
+```
+
+
 ## ■ Python
 ```python
 # Python

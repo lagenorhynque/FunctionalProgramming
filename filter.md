@@ -38,6 +38,18 @@ filterEven2 = (ns) ->
 ```
 
 
+## TypeScript
+```typescript
+// TypeScript
+
+var filterEven1 = function (ns: Array<number>): Array<number> {
+  return ns.filter((x) => {
+    return x % 2 === 0;
+  });
+};
+```
+
+
 ## Python
 ```python
 # Python

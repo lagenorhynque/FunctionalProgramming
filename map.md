@@ -38,6 +38,18 @@ mapSquare2 = (ns) ->
 ```
 
 
+## TypeScript
+```typescript
+// TypeScript
+
+var mapSquare1 = function (ns: Array<number>): Array<number> {
+  return ns.map((x) => {
+    return Math.pow(x, 2);
+  });
+};
+```
+
+
 ## Python
 ```python
 # Python
