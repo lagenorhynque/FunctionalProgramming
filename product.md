@@ -269,7 +269,7 @@ sub product3 {
 
 ## ■ C
 ```c
-// C
+/* C */
 
 int product1(int ns[], size_t size)
 {
