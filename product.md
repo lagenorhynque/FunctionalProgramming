@@ -265,3 +265,20 @@ sub product3 {
   return List::Util::product @$ns_ref;
 }
 ```
+
+
+## ■ C
+```c
+// C
+
+int product1(int ns[], size_t size)
+{
+  int i;
+  int p = 1;
+
+  for (i = 0; i < size; ++i) {
+    p *= ns[i];
+  }
+  return p;
+}
+```
