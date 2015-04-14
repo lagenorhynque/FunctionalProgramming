@@ -2,10 +2,21 @@ product関数の実装例
 ==================
 
 ## ■ プログラミング言語
-- 手続き型(procedural)言語
-- オブジェクト指向(object-oriented)言語
-- 関数型(functional)言語
-- 論理型(logic)言語
+#### パラダイム
+- 命令型(imperative)
+    - 手続き型(procedural)
+    - オブジェクト指向(object-oriented)
+- 宣言型(declarative)
+    - 関数型(functional)
+    - 論理型(logic)
+
+#### 型付け
+- 静的型付け(statically typed) ←→ 動的型付け(dynamically typed)
+- 強い型付け(strongly typed) ←→ 弱い型付け(weakly typed)
+
+#### 処理系
+- コンパイラ(compiler)
+- インタプリタ(interpreter)
 
 
 ----------------------------------------
