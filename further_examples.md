@@ -142,8 +142,40 @@ let odd_names1_2 names =
 #### Erlang
 
 ```erlang
-%% 高階関数
+%% 高階関数foldl
+odd_names1(Names) ->
+  Capitalize = fun
+    ([]) ->
+      [];
+    ([C|Cs]) ->
+      [string:to_upper(C) | string:to_lower(Cs)]
+  end,
+  OddName = fun(Name, Res) ->
+    case Name of
+      Name when length(Name) rem 2 =/= 0 ->
+        [Capitalize(Name) | Res];
+      _ ->
+        Res
+    end
+  end,
+  lists:sort(lists:foldl(OddName, [], Names)).
 
+%% foldlの引数にラムダ式を利用
+odd_names1_2(Names) ->
+  Capitalize = fun
+    ([]) ->
+      [];
+    ([C|Cs]) ->
+      [string:to_upper(C) | string:to_lower(Cs)]
+  end,
+  lists:sort(lists:foldl(fun(Name, Res) ->
+    case Name of
+      Name when length(Name) rem 2 =/= 0 ->
+        [Capitalize(Name) | Res];
+      _ ->
+        Res
+    end
+  end, [], Names)).
 ```
 
 
@@ -213,8 +245,18 @@ let odd_names2_2 names =
 #### Erlang
 
 ```erlang
-%% 高階関数
-
+%% 高階関数filterとmap
+odd_names2(Names) ->
+  IsOddLen = fun(X) ->
+    length(X) rem 2 =/= 0
+  end,
+  Capitalize = fun
+    ([]) ->
+      [];
+    ([C|Cs]) ->
+      [string:to_upper(C) | string:to_lower(Cs)]
+  end,
+  lists:sort(lists:map(Capitalize, lists:filter(IsOddLen, Names))).
 ```
 
 
@@ -271,5 +313,15 @@ def oddNames3(names: List[String]): List[String] = {
 
 ```erlang
 %% リスト内包表記
-
+odd_names3(Names) ->
+  IsOddLen = fun(X) ->
+    length(X) rem 2 =/= 0
+  end,
+  Capitalize = fun
+    ([]) ->
+      [];
+    ([C|Cs]) ->
+      [string:to_upper(C) | string:to_lower(Cs)]
+  end,
+  lists:sort([Capitalize(Name) || Name <- Names, IsOddLen(Name)]).
 ```
