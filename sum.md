@@ -214,27 +214,6 @@ sum5 = rec 0
         (recur xs (+ x s))))))
 ```
 
-##### OCaml
-
-```ocaml
-(* 単純な再帰 *)
-let rec sum4 = function
-  | [] -> 0
-  | x :: xs -> x + sum4 xs
-
-(* 末尾再帰 *)
-let sum5 =
-  let rec recur s = function
-  | [] -> s
-  | x :: xs -> recur (x + s) xs in
-  recur 0
-
-(* デフォルト引数を利用した末尾再帰 *)
-let rec sum6 ?(s=0) = function
-  | [] -> s
-  | x :: xs -> sum6 ~s:(x + s) xs
-```
-
 ##### Scala
 
 ```scala
@@ -266,6 +245,55 @@ def sum6(ns: List[Int], s: Int = 0): Int = {
     case x :: xs => sum6(xs, x + s)
   }
 }
+```
+
+##### OCaml
+
+```ocaml
+(* 単純な再帰 *)
+let rec sum4 = function
+  | [] -> 0
+  | x :: xs -> x + sum4 xs
+
+(* 末尾再帰 *)
+let sum5 =
+  let rec recur s = function
+  | [] -> s
+  | x :: xs -> recur (x + s) xs in
+  recur 0
+
+(* デフォルト引数を利用した末尾再帰 *)
+let rec sum6 ?(s=0) = function
+  | [] -> s
+  | x :: xs -> sum6 ~s:(x + s) xs
+```
+
+#### Erlang
+
+```erlang
+%% 単純な再帰
+sum4([]) ->
+  0;
+sum4([N|Ns]) ->
+  N + sum4(Ns).
+
+%% 末尾再帰
+sum5(Ns) ->
+  sum5(Ns, 0).
+sum5([], S) ->
+  S;
+sum5([N|Ns], S) ->
+  sum5(Ns, N + S).
+
+%% ラムダ式を利用した末尾再帰
+sum6(Ns) ->
+  Rec = fun
+    Rec([], S) ->
+      S;
+    Rec([X|Xs], S) ->
+      Rec(Xs, X + S)
+  end,
+  Rec(Ns, 0).
 ```
 
 
@@ -318,18 +346,6 @@ sum8 = foldl' (+) 0
   (reduce + 0 ns))
 ```
 
-##### OCaml
-
-```ocaml
-(* 高階関数fold_left *)
-let sum7 =
-  List.fold_left (fun x y -> x + y) 0
-
-(* ラムダ式の代わりに演算子+を関数化して利用 *)
-let sum8 =
-  List.fold_left (+) 0
-```
-
 ##### Scala
 
 ```scala
@@ -342,4 +358,24 @@ def sum7(ns: List[Int]): Int = {
 def sum8(ns: List[Int]): Int = {
   ns.foldLeft(0)(_ + _)
 }
+```
+
+##### OCaml
+
+```ocaml
+(* 高階関数fold_left *)
+let sum7 =
+  List.fold_left (fun x y -> x + y) 0
+
+(* ラムダ式の代わりに演算子+を関数化して利用 *)
+let sum8 =
+  List.fold_left (+) 0
+```
+
+#### Erlang
+
+```erlang
+%% 高階関数foldl
+sum7(Ns) ->
+  lists:foldl(fun(X, Y) -> X + Y end, 0, Ns).
 ```

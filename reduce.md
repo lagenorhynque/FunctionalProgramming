@@ -121,27 +121,6 @@ reduceProduct3 = product
 ```
 
 
-## OCaml
-```ocaml
-(* OCaml *)
-
-let reduce_product1 =
-  List.fold_left (fun x y -> x * y) 1
-
-let reduce_product2 =
-  List.fold_left ( * ) 1
-```
-
-
-## Erlang
-```erlang
-%% Erlang
-
-reduce_product1(Ns) ->
-  lists:foldl(fun(X, Y) -> X * Y end, 1, Ns).
-```
-
-
 ## Scala
 ```scala
 // Scala
@@ -181,6 +160,27 @@ end
 static int reduceProduct1(List<Integer> ns) {
   ns.inject(1) { x, y -> x * y }
 }
+```
+
+
+## OCaml
+```ocaml
+(* OCaml *)
+
+let reduce_product1 =
+  List.fold_left (fun x y -> x * y) 1
+
+let reduce_product2 =
+  List.fold_left ( * ) 1
+```
+
+
+## Erlang
+```erlang
+%% Erlang
+
+reduce_product1(Ns) ->
+  lists:foldl(fun(X, Y) -> X * Y end, 1, Ns).
 ```
 
 

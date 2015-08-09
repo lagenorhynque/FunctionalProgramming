@@ -122,27 +122,6 @@ filterEven3 ns = [n | n <- ns, n `mod` 2 == 0]
 ```
 
 
-## OCaml
-```ocaml
-(* OCaml *)
-
-let filter_even1 =
-  List.filter (fun x -> x mod 2 = 0)
-```
-
-
-## Erlang
-```erlang
-%% Erlang
-
-filter_even1(Ns) ->
-  lists:filter(fun(X) -> X rem 2 =:= 0 end, Ns).
-
-filter_even2(Ns) ->
-  [N || N <- Ns, N rem 2 =:= 0].
-```
-
-
 ## Scala
 ```scala
 // Scala
@@ -186,6 +165,27 @@ static List<Integer> filterEven1(List<Integer> ns) {
 static List<Integer> filterEven2(List<Integer> ns) {
   ns.findAll { it % 2 == 0 }
 }
+```
+
+
+## OCaml
+```ocaml
+(* OCaml *)
+
+let filter_even1 =
+  List.filter (fun x -> x mod 2 = 0)
+```
+
+
+## Erlang
+```erlang
+%% Erlang
+
+filter_even1(Ns) ->
+  lists:filter(fun(X) -> X rem 2 =:= 0 end, Ns).
+
+filter_even2(Ns) ->
+  [N || N <- Ns, N rem 2 =:= 0].
 ```
 
 

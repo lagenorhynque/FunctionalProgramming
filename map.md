@@ -113,27 +113,6 @@ mapSquare3 ns = [n ^ 2 | n <- ns]
 ```
 
 
-## OCaml
-```ocaml
-(* OCaml *)
-
-let map_square1 =
-  List.map (fun x -> int_of_float (float_of_int x ** 2.))
-```
-
-
-## Erlang
-```erlang
-%% Erlang
-
-map_square1(Ns) ->
-  lists:map(fun(X) -> trunc(math:pow(2, X)) end, Ns).
-
-map_square2(Ns) ->
-  [trunc(math:pow(2, N)) || N <- Ns].
-```
-
-
 ## Scala
 ```scala
 // Scala
@@ -173,6 +152,27 @@ static List<Integer> mapSquare1(List<Integer> ns) {
 static List<Integer> mapSquare2(List<Integer> ns) {
   ns.collect { Math.pow(it, 2) as int }
 }
+```
+
+
+## OCaml
+```ocaml
+(* OCaml *)
+
+let map_square1 =
+  List.map (fun x -> int_of_float (float_of_int x ** 2.))
+```
+
+
+## Erlang
+```erlang
+%% Erlang
+
+map_square1(Ns) ->
+  lists:map(fun(X) -> trunc(math:pow(2, X)) end, Ns).
+
+map_square2(Ns) ->
+  [trunc(math:pow(2, N)) || N <- Ns].
 ```
 
 

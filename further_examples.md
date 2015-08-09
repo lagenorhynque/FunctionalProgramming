@@ -94,26 +94,6 @@ oddNames1_2 = sort . foldl' (\res name ->
                 [] names)))
 ```
 
-##### OCaml
-
-```ocaml
-(* 高階関数fold_left *)
-let odd_names1 names =
-  let odd_name res = function
-  | name when (String.length name) mod 2 <> 0 ->
-    String.capitalize name :: res
-  | _ -> res in
-  List.sort compare (List.fold_left odd_name [] names)
-
-(* fold_leftの引数にラムダ式を利用 *)
-let odd_names1_2 names =
-  List.sort compare (List.fold_left (fun res name ->
-    match name with
-    | name when (String.length name) mod 2 <> 0 ->
-      String.capitalize name :: res
-    | _ -> res) [] names)
-```
-
 ##### Scala
 
 ```scala
@@ -137,6 +117,33 @@ def oddNames1_2(names: List[String]): List[String] = {
     }
   ).sorted
 }
+```
+
+##### OCaml
+
+```ocaml
+(* 高階関数fold_left *)
+let odd_names1 names =
+  let odd_name res = function
+  | name when (String.length name) mod 2 <> 0 ->
+    String.capitalize name :: res
+  | _ -> res in
+  List.sort compare (List.fold_left odd_name [] names)
+
+(* fold_leftの引数にラムダ式を利用 *)
+let odd_names1_2 names =
+  List.sort compare (List.fold_left (fun res name ->
+    match name with
+    | name when (String.length name) mod 2 <> 0 ->
+      String.capitalize name :: res
+    | _ -> res) [] names)
+```
+
+#### Erlang
+
+```erlang
+%% 高階関数
+
 ```
 
 
@@ -178,6 +185,15 @@ oddNames2 = sort . map capitalize . filter (odd . length)
   (->> names (filter #(odd? (count %))) (map #(capitalize %)) sort))
 ```
 
+##### Scala
+
+```scala
+// 高階関数filterとmap
+def oddNames2(names: List[String]): List[String] = {
+  names.filter(_.length % 2 != 0).map(_.capitalize).sorted
+}
+```
+
 ##### OCaml
 
 ```ocaml
@@ -194,13 +210,11 @@ let odd_names2_2 names =
   names |> List.filter is_odd_len |> List.map String.capitalize |> List.sort compare
 ```
 
-##### Scala
+#### Erlang
 
-```scala
-// 高階関数filterとmap
-def oddNames2(names: List[String]): List[String] = {
-  names.filter(_.length % 2 != 0).map(_.capitalize).sorted
-}
+```erlang
+%% 高階関数
+
 ```
 
 
@@ -238,12 +252,6 @@ oddNames3 names = sort [capitalize name | name <- names, odd $ length name]
   (sort (for [name names :when (odd? (count name))] (capitalize name))))
 ```
 
-##### OCaml
-
-```ocaml
-(* 標準機能にはない…… *)
-```
-
 ##### Scala
 
 ```scala
@@ -251,4 +259,17 @@ oddNames3 names = sort [capitalize name | name <- names, odd $ length name]
 def oddNames3(names: List[String]): List[String] = {
   (for (name <- names if name.length % 2 != 0) yield name.capitalize).sorted
 }
+```
+
+##### OCaml
+
+```ocaml
+(* 標準機能にはない…… *)
+```
+
+#### Erlang
+
+```erlang
+%% リスト内包表記
+
 ```
