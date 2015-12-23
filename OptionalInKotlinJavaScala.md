@@ -22,13 +22,13 @@ public static Optional<Integer> half(int n) {
   return n % 2 == 0 ? Optional.of(n / 2) : Optional.empty();
 }
 
-System.out.println(half(2).map(String::valueOf).orElse("undefined"))  // => 1
-System.out.println(half(3).map(String::valueOf).orElse("undefined"))  // => undefined
-System.out.println(half(4).map(String::valueOf).orElse("undefined"))  // => 2
+System.out.println(half(2).map(String::valueOf).orElse("undefined"));  // => 1
+System.out.println(half(3).map(String::valueOf).orElse("undefined"));  // => undefined
+System.out.println(half(4).map(String::valueOf).orElse("undefined"));  // => 2
 
-half(2).map(n -> String.format("%s is a half of %s", n, n * 2))  // => Optional[1 is a half of 2]
-half(3).map(n -> String.format("%s is a half of %s", n, n * 2))  // => Optional.empty
-half(4).map(n -> String.format("%s is a half of %s", n, n * 2))  // => Optional[2 is a half of 4]
+half(2).map(n -> String.format("%s is a half of %s", n, n * 2));  // => Optional[1 is a half of 2]
+half(3).map(n -> String.format("%s is a half of %s", n, n * 2));  // => Optional.empty
+half(4).map(n -> String.format("%s is a half of %s", n, n * 2));  // => Optional[2 is a half of 4]
 ```
 
 ## Scala
