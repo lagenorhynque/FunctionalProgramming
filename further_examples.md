@@ -139,7 +139,7 @@ let odd_names1_2 names =
     | _ -> res) [] names)
 ```
 
-#### Erlang
+##### Erlang
 
 ```erlang
 %% 高階関数foldl
@@ -242,7 +242,7 @@ let odd_names2_2 names =
   names |> List.filter is_odd_len |> List.map String.capitalize |> List.sort compare
 ```
 
-#### Erlang
+##### Erlang
 
 ```erlang
 %% 高階関数filterとmap
@@ -309,7 +309,7 @@ def oddNames3(names: List[String]): List[String] = {
 (* 標準機能にはない…… *)
 ```
 
-#### Erlang
+##### Erlang
 
 ```erlang
 %% リスト内包表記
