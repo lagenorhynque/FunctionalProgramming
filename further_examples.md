@@ -44,9 +44,7 @@ def odd_names1(names):
     def odd_name(res, name):
         if len(name) % 2 != 0:
             res.append(name.capitalize())
-            return res
-        else:
-            return res
+        return res
     return sorted(reduce(odd_name, names, []))
 ```
 
@@ -99,24 +97,23 @@ oddNames1_2 = sort . foldl' (\res name ->
 ```scala
 // 高階関数foldLeft
 def oddNames1(names: List[String]): List[String] = {
-  def oddName(res: List[String], name: String) = {
+  def oddName(res: List[String], name: String) =
     name match {
       case name if name.length % 2 != 0 => name.capitalize :: res
       case _ => res
     }
-  }
+
   names.foldLeft(List[String]())(oddName).sorted
 }
 
 // foldLeftの引数にラムダ式を利用
-def oddNames1_2(names: List[String]): List[String] = {
+def oddNames1_2(names: List[String]): List[String] =
   names.foldLeft(List[String]())((res, name) =>
     name match {
       case name if name.length % 2 != 0 => name.capitalize :: res
       case _ => res
     }
   ).sorted
-}
 ```
 
 ##### OCaml
@@ -221,9 +218,8 @@ oddNames2 = sort . map capitalize . filter (odd . length)
 
 ```scala
 // 高階関数filterとmap
-def oddNames2(names: List[String]): List[String] = {
+def oddNames2(names: List[String]): List[String] =
   names.filter(_.length % 2 != 0).map(_.capitalize).sorted
-}
 ```
 
 ##### OCaml
@@ -298,9 +294,8 @@ oddNames3 names = sort [capitalize name | name <- names, odd $ length name]
 
 ```scala
 // シーケンス内包表記
-def oddNames3(names: List[String]): List[String] = {
+def oddNames3(names: List[String]): List[String] =
   (for (name <- names if name.length % 2 != 0) yield name.capitalize).sorted
-}
 ```
 
 ##### OCaml
