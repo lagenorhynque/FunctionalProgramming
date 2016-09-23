@@ -74,13 +74,14 @@ Haskell、Clojureともに数学的な再帰的定義をほぼそのまま表現
 可変状態がないため状態の変化を管理する必要がなくなり、並列/並行処理として実行するのも容易になる。
 
 ただし、単純な再帰としてプログラムを実装した場合、関数呼出しの繰り返しによりスタックオーバーフローが発生する可能性がある。
-また、フィボナッチ数の場合、1回の関数呼出しにつき2回の再帰呼出しが生じるため計算量が指数的に増大し、大きな入力値に対して計算効率が非常に悪い。
+また、フィボナッチ数の場合、1回の関数呼出しにつき2回の再帰呼出しが生じるため計算量が指数的に増大し、大きな入力値に対して計算効率が非常に悪い(→**メモ化([memoization])**で回避することもできる)。
 
 [functional]: http://en.wikipedia.org/wiki/Functional_programming
 [recursion]: http://en.wikipedia.org/wiki/Recursion_(computer_science)
 [pattern matching]: http://en.wikipedia.org/wiki/Pattern_matching
 [declarative]: http://en.wikipedia.org/wiki/Declarative_programming
 [referential transparency]: http://en.wikipedia.org/wiki/Referential_transparency_(computer_science)
+[memoization]: https://en.wikipedia.org/wiki/Memoization
 
 
 ## 2. 末尾再帰
