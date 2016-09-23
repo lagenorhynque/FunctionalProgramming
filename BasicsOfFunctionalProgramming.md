@@ -5,7 +5,7 @@
 
 題材として関数型言語の入門でよく取り上げられる「フィボナッチ数」([Fibonacci number])の計算を用いる。
 
-フィボナッチ数は、以下のように定義される。
+$i$ 番目のフィボナッチ数 $F_i$ は、以下のように定義される。
 
 > $F_0 = 0$
 
@@ -13,7 +13,7 @@
 
 > $F_i = F_{i-2} + F_{i-1}, i \ge 2$
 
-0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...と続き、直前の2項の和が次の項になっている。
+$0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...$ と続き、直前の2項の和が次の項になっている。
 
 [Fibonacci number]: http://en.wikipedia.org/wiki/Fibonacci_number
 
@@ -56,9 +56,10 @@ fibonacci1 i = fibonacci1 (i - 2) + fibonacci1 (i - 1)
 ```clojure
 ;; Clojure
 (defn fibonacci1 [i]
-  (cond (= i 0) 0N
-        (= i 1) 1N
-        :else   (+ (fibonacci1 (- i 2)) (fibonacci1 (- i 1)))))
+  (cond
+    (= i 0) 0N
+    (= i 1) 1N
+    :else   (+ (fibonacci1 (- i 2)) (fibonacci1 (- i 1)))))
 ```
 
 Haskell、Clojureともに数学的な再帰的定義をほぼそのまま表現した、シンプルなコードになっている。
@@ -197,7 +198,7 @@ fibonacci5 i = fibs !! i
 フィボナッチ数列を数学的に行列(matrix)として表現すると、以下のようになる。
 > $\begin{pmatrix} F_{i+1} & F_i \\\\ F_i & F_{i-1} \end{pmatrix} = {\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \end{pmatrix}}^i$
 
-したがって、$\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \end{pmatrix}$の$i$乗を計算することで、$F_i$の値を求めることができる。
+したがって、 $\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \end{pmatrix}$ の $i$ 乗を計算することで、 $F_i$ の値を求めることができる。
 
 2×2の行列の積は以下のように定義されている。
 > $\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \end{pmatrix}\begin{pmatrix} b_{11} & b_{12} \\\\ b_{21} & b_{22} \end{pmatrix} = {\begin{pmatrix} a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\\\ a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22} \end{pmatrix}}$
@@ -207,7 +208,7 @@ fibonacci5 i = fibs !! i
 
 である。
 
-以上のことから、行列$\begin{pmatrix} a & b \\\\ c & d \end{pmatrix}$をリスト[a, b, c, d]で表すとすると、以下のようにフィボナッチ数を計算することができる。
+以上のことから、行列 $\begin{pmatrix} a & b \\\\ c & d \end{pmatrix}$ をリスト[a, b, c, d]で表すとすると、以下のようにフィボナッチ数を計算することができる。
 
 ```haskell
 -- Haskell
@@ -215,8 +216,9 @@ fibonacci6 :: Int -> Integer
 fibonacci6 i = iterate (prod [1, 1, 1, 0]) [1, 0, 0, 1] !! i !! 1
   where
     prod [a11, a12, a21, a22] [b11, b12, b21, b22] =
-      [a11 * b11 + a12 * b21, a11 * b12 + a12 * b22,
-       a21 * b11 + a22 * b21, a21 * b12 + a22 * b22]
+        [ a11 * b11 + a12 * b21, a11 * b12 + a12 * b22
+        , a21 * b11 + a22 * b21, a21 * b12 + a22 * b22
+        ]
 ```
 ```clojure
 ;; Clojure
@@ -233,7 +235,7 @@ fibonacci6 i = iterate (prod [1, 1, 1, 0]) [1, 0, 0, 1] !! i !! 1
 ここで、指数法則
 > $a^{mn} = {(a^m)}^n$
 
-により、指数が偶数の場合には$a^{2n} = {(a^2)}^n$と変形できることを利用すると、${\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \end{pmatrix}}^i$の計算を大幅に効率化することができる。
+により、指数が偶数の場合には $a^{2n} = {(a^2)}^n$ と変形できることを利用すると、 ${\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \end{pmatrix}}^i$ の計算を大幅に効率化することができる。
 
 ```haskell
 -- Haskell
@@ -241,12 +243,13 @@ fibonacci6' :: Int -> Integer
 fibonacci6' i = pow prod [1, 1, 1, 0] i [1, 0, 0, 1] !! 1
   where
     pow f x n a
-      | n == 0    = a
-      | even n    = pow f (f x x) (n `div` 2) a
-      | otherwise = pow f x (n - 1) (f x a)
+        | n == 0    = a
+        | even n    = pow f (f x x) (n `div` 2) a
+        | otherwise = pow f x (n - 1) (f x a)
     prod [a11, a12, a21, a22] [b11, b12, b21, b22] =
-      [a11 * b11 + a12 * b21, a11 * b12 + a12 * b22,
-       a21 * b11 + a22 * b21, a21 * b12 + a22 * b22]
+        [ a11 * b11 + a12 * b21, a11 * b12 + a12 * b22
+        , a21 * b11 + a22 * b21, a21 * b12 + a22 * b22
+        ]
 ```
 ```clojure
 ;; Clojure
